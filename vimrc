@@ -47,6 +47,8 @@ map <F4> :w<CR>:read!wc -w %<CR>
 map <F5> ggO<CR><ESC>:1!sed -n '/^\#/p' %<CR>
 
 " Escape mapping from an online guy
+" I also remapped `escape` in normal mode, since it's now freed
+" up (could be risky)
 inoremap jk <ESC>
 inoremap <ESC> -
 

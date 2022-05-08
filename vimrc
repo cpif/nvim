@@ -47,15 +47,12 @@ map <F4> :w<CR>:read!wc -w %<CR>
 map <F5> ggO<CR><ESC>:1!sed -n '/^\#/p' %<CR>
 
 " Escape mapping from an online guy
-" I also remapped `escape` in normal mode, since it's now freed
-" up (could be risky)
 inoremap jk <ESC>
-inoremap <ESC> -
 
 " Experimental language-specific settings
-autocmd Filetype c setlocal encoding=latin1 tw=80
 autocmd Filetype html setlocal tw=80
 autocmd BufEnter *.awk setlocal tw=0
 autocmd BufEnter *.fish setlocal tw=0
 autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2
 autocmd BufEnter *.tsv setlocal noexpandtab tw=0
+autocmd BufEnter *.csv setlocal noexpandtab tw=0

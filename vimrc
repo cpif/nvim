@@ -1,3 +1,17 @@
+let g:writermode = 0
+
+function Writermode()
+    if g:writermode == 0
+        let g:writermode = 1
+        set nonumber
+        set tw=0
+    else
+        let g:writermode = 0
+        set number
+        set tw=65
+    endif
+endfunction
+
 " Good light-colored scheme
 " colorscheme morning
 " My favorite colorscheme
@@ -46,6 +60,9 @@ map <F4> :w<CR>:read!wc -w %<CR>
 " Print an outline
 map <F5> ggO<CR><ESC>:1!sed -n '/^\#/p' %<CR>
 
+" Enter and leave writermode
+map <F6> :exec Writermode()<CR>
+
 " Escape mapping from an online guy
 inoremap jk <ESC>
 
@@ -56,3 +73,4 @@ autocmd BufEnter *.fish setlocal tw=0
 autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2
 autocmd BufEnter *.tsv setlocal noexpandtab tw=0
 autocmd BufEnter *.csv setlocal noexpandtab tw=0
+

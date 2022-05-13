@@ -72,6 +72,7 @@ inoremap jk <ESC>
 
 " Kill backspace
 inoremap <BS> "
+inoremap <DEL> '
 
 " Meta keys for stuff!
 inoremap <M-p> ()<ESC>i

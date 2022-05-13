@@ -73,6 +73,13 @@ inoremap jk <ESC>
 " Kill backspace
 inoremap <BS> "
 
+" Meta keys for stuff!
+inoremap <M-p> ()<ESC>i
+inoremap <M-i> **<ESC>i
+inoremap <M-b> ****<ESC>hi
+" Get out of the block
+inoremap <M-a> <ESC>A
+
 " Experimental language-specific settings
 autocmd Filetype html setlocal tw=80
 autocmd BufEnter *.awk setlocal tw=0

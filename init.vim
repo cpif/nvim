@@ -15,7 +15,7 @@ endfunction
 " Good light-colored scheme
 " colorscheme morning
 " My favorite colorscheme
-colorscheme ron
+colorscheme shine
 
 set shell=/usr/bin/fish
 
@@ -37,7 +37,7 @@ set encoding=utf-8
 set linebreak
 set tw=65
 set autoindent
-set number
+set rnu
 
 " Settings related to the tab key
 set expandtab
@@ -65,6 +65,9 @@ map <F6> :exec Writermode()<CR>
 
 " Escape mapping from an online guy
 inoremap jk <ESC>
+
+" Kill backspace
+imap <BS> "
 
 " Experimental language-specific settings
 autocmd Filetype html setlocal tw=80

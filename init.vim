@@ -37,6 +37,7 @@ set encoding=utf-8
 set linebreak
 set tw=65
 set autoindent
+set number
 set rnu
 
 " Settings related to the tab key
@@ -44,30 +45,33 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
+" Set the leader key
+let mapleader = "-"
+
 " Arrow mapping to windows
-map <UP> <C-w>k
-map <DOWN> <C-w>j
-map <LEFT> <C-w>h
-map <RIGHT> <C-w>l
+nnoremap <UP> <C-w>k
+nnoremap <DOWN> <C-w>j
+nnoremap <LEFT> <C-w>h
+nnoremap <RIGHT> <C-w>l
 
 " Mapping function keys to window generation
-map <F2> <C-w>v
-map <F3> <C-w>s
+nnoremap <F2> <C-w>v
+nnoremap <F3> <C-w>s
 
 " Print word count
-map <F4> :w<CR>:read!wc -w %<CR>
+nnoremap <F4> :w<CR>:read!wc -w %<CR>
 
 " Print an outline
-map <F5> ggO<CR><ESC>:1!sed -n '/^\#/p' %<CR>
+nnoremap <F5> ggO<CR><ESC>:1!sed -n '/^\#/p' %<CR>
 
 " Enter and leave writermode
-map <F6> :exec Writermode()<CR>
+nnoremap <F6> :exec Writermode()<CR>
 
 " Escape mapping from an online guy
 inoremap jk <ESC>
 
 " Kill backspace
-imap <BS> "
+inoremap <BS> "
 
 " Experimental language-specific settings
 autocmd Filetype html setlocal tw=80
@@ -77,3 +81,4 @@ autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2
 autocmd BufEnter *.tsv setlocal noexpandtab tw=0
 autocmd BufEnter *.csv setlocal noexpandtab tw=0
 
+cnorea myvimrc $MYVIMRC

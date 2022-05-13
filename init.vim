@@ -45,9 +45,6 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 
-" Set the leader key
-let mapleader = "-"
-
 " Arrow mapping to windows
 nnoremap <UP> <C-w>k
 nnoremap <DOWN> <C-w>j
@@ -73,6 +70,9 @@ inoremap jk <ESC>
 " Kill backspace
 inoremap <BS> "
 inoremap <DEL> '
+
+" Question mark
+inoremap <ESC> ?
 
 " Meta keys for stuff!
 inoremap <M-p> ()<ESC>i

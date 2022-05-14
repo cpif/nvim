@@ -79,7 +79,7 @@ inoremap <M-p> ()<ESC>i
 inoremap <M-i> **<ESC>i
 inoremap <M-b> ****<ESC>hi
 " Get out of the block
-inoremap <M-a> <ESC>A
+inoremap <M-;> <ESC>A
 
 " Experimental language-specific settings
 autocmd Filetype html   setlocal tw=80 nowrap

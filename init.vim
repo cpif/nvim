@@ -82,11 +82,11 @@ inoremap <M-b> ****<ESC>hi
 inoremap <M-a> <ESC>A
 
 " Experimental language-specific settings
-autocmd Filetype html setlocal tw=80 nowrap
-autocmd BufEnter *.awk setlocal tw=0 nowrap
+autocmd Filetype html   setlocal tw=80 nowrap
+autocmd BufEnter *.awk  setlocal tw=0 nowrap
 autocmd BufEnter *.fish setlocal tw=0 nowrap
-autocmd Filetype yaml setlocal tabstop=2 shiftwidth=2
-autocmd BufEnter *.tsv setlocal noexpandtab tw=0
-autocmd BufEnter *.csv setlocal noexpandtab tw=0
+autocmd Filetype yaml   setlocal tabstop=2 shiftwidth=2
+autocmd BufEnter *.tsv  setlocal noexpandtab tw=0
+autocmd BufEnter *.csv  setlocal noexpandtab tw=0
 
 cnorea myvimrc $MYVIMRC

@@ -1,4 +1,4 @@
-set statusline=¯\_(ツ)_/¯\ \ \ FILE\ %f\ \ \ \ \ LINE\ %3l\ of\ %L
+set statusline=¯\_(ツ)_/¯\ \ \ FILE\ %f\ \ \ \ LINE\ %3l\ of\ %L
 let g:writermode = 0
 
 function Writermode()

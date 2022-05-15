@@ -79,6 +79,7 @@ inoremap <M-p> ()<ESC>i
 inoremap <M-i> **<ESC>i
 nnoremap <M-i> hea*<ESC>bi*<ESC>
 inoremap <M-b> ****<ESC>hi
+nnoremap <M-o> O<ESC>
 " Get out of the block
 inoremap <M-;> <ESC>A
 

@@ -1,4 +1,4 @@
-set statusline=¯\_(ツ)_/¯\ \ \ FILE\ %15.15f\ \ \ \ LINE\ %3l\ of\ %L
+set statusline=¯\_(ツ)_/¯\ \ \ FILE\ %25.25f\ \ \ \ LINE\ %3l\ of\ %L
 let g:writermode = 0
 
 function Writermode()
@@ -15,9 +15,9 @@ endfunction
 
 " Good light-colored scheme
 " colorscheme morning
-" colorscheme shine
+colorscheme shine
 " My favorite colorscheme
-colorscheme ron
+" colorscheme ron
 
 set shell=/usr/bin/fish
 

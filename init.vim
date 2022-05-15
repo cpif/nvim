@@ -91,7 +91,9 @@ augroup wrapless
     au Filetype html,awk,fish   setlocal nowrap
 augroup END
 
-au Filetype yaml   setlocal tabstop=2 shiftwidth=2
-au BufEnter *.tsv  setlocal noexpandtab tw=0
-au BufEnter *.csv  setlocal noexpandtab tw=0
+augroup spreadsheets
+    au BufEnter *.tsv  setlocal noexpandtab tw=0
+    au BufEnter *.csv  setlocal noexpandtab tw=0
+augroup END
 
+au Filetype yaml   setlocal tabstop=2 shiftwidth=2

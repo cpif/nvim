@@ -1,4 +1,4 @@
-set statusline=¯\_(ツ)_/¯\ \ \ FILE\ %25.25f\ \ \ \ LINE\ %3l\ of\ %L
+set statusline=¯\\_(ツ)_/¯\ \ \ FILE\ %-25.25f\ \ \ \ LINE\ %3l\ /\ %L
 let g:writermode = 0
 
 function Writermode()
@@ -13,7 +13,7 @@ function Writermode()
     endif
 endfunction
 
-" Good light-colored scheme
+" Colorschemes
 " colorscheme morning
 " colorscheme shine
 " My favorite colorscheme
@@ -83,7 +83,7 @@ nnoremap <M-i> hea*<ESC>bi*<ESC>
 inoremap <M-b> ****<ESC>hi
 nnoremap <M-o> O<ESC>
 " Get out of the block
-inoremap <M-;> <ESC>A
+inoremap ;; <ESC>A
 
 cnorea myvimrc $MYVIMRC
 

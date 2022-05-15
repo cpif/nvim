@@ -13,10 +13,9 @@ function Writermode()
     endif
 endfunction
 
-" Good light-colored scheme
+" Colorschemes
 " colorscheme morning
 colorscheme shine
-" My favorite colorscheme
 " colorscheme ron
 
 set shell=/usr/bin/fish

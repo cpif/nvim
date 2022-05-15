@@ -15,9 +15,9 @@ endfunction
 
 " Good light-colored scheme
 " colorscheme morning
-colorscheme shine
+" colorscheme shine
 " My favorite colorscheme
-" colorscheme ron
+colorscheme ron
 
 set shell=/usr/bin/fish
 

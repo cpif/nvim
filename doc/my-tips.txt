@@ -12,3 +12,5 @@ W = width of text desired (i.e. 20)
     W = ((T - 1) / N) - 3
 <
 When pasting columns, you should paste at W + 3.
+
+vim:tw=65:ts=4:ft=help

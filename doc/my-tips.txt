@@ -1,0 +1,14 @@
+*my-tips.txt*        TIPS AND TRICKS FOR THE IDIOT.
+
+=================================================================
+COLUMN WIDTH                                       *table-widths*
+
+Column width calculation for plaintext tables, where: 
+
+T = total width file (i.e. ts=80, 65)
+N = number of columns (i.e. 4)
+W = width of text desired (i.e. 20)
+>
+    W = ((T - 1) / N) - 3
+<
+When pasting columns, you should paste at W + 3.

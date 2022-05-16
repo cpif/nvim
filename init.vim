@@ -1,4 +1,4 @@
-" Default text display--------------------------------------{{{
+" Default text display----------------------------------------{{{
 set encoding=utf-8
 set linebreak
 set tw=65
@@ -9,7 +9,7 @@ set foldlevelstart=0
 set foldmethod=marker
 " }}}
 
-" Display Settings------------------------------------------{{{
+" Display Settings--------------------------------------------{{{
 colorscheme ron
 " Don't judge me:
 set statusline=¯\\_(ツ)_/¯\ \ \ FILE\ %-25.25f\ \ \ \ LINE\ %3l\ /\ %L\ \ \ \ COL\ %v
@@ -24,18 +24,19 @@ nnoremap <F5> ggO<CR><ESC>:1!sed -n '/^\#/p' %<CR>
 
 " Insert a blank line above the current line
 nnoremap <M-o> O<ESC>
-" }}}
 
 " Better escaping
 inoremap jk <ESC>
 
-" Tab key---------------------------------------------------{{{
+" }}}
+
+" Tab key-----------------------------------------------------{{{
 set expandtab
 set tabstop=4
 set shiftwidth=4
 " }}}
 
-" Writer Mode----------------------------------------------{{{
+" Writer Mode-------------------------------------------------{{{
 " I have two ways of working:
 " 1) With plaintext files I want to open in other programs that
 "    don't care about long lines
@@ -61,15 +62,16 @@ endfunction
 " Search path
 set path+=~/**
 
+" I don't like capitalizing
 cnorea myvimrc $MYVIMRC
 
-" Externals-------------------------------------------------{{{
+" Externals---------------------------------------------------{{{
 set shell=/usr/bin/fish
 set dictionary=/usr/share/dict/american-english
 set makeprg=gcc\ %
 " }}}
 
-" File-specific settings -----------------------------------{{{
+" File-specific settings -------------------------------------{{{
 augroup wrapless
     au!
     au Filetype html,awk,fish   setlocal tw=0
@@ -96,7 +98,7 @@ nnoremap <F2> <C-w>v
 nnoremap <F3> <C-w>s
 " }}}
 
-" Tiny keyboard---------------------------------------------{{{
+" Tiny keyboard-----------------------------------------------{{{
 " I have a tiny keyboard missing most of the important symbols.
 " These mappings are mostly for writing in markdown.
 
@@ -114,7 +116,7 @@ inoremap <M-b> ****<ESC>hi
 inoremap ;; <ESC>A
 " }}}
 
-" Hide those pesky swapfiles------------------------------- {{{
+" Hide those pesky swapfiles----------------------------------{{{
 set backupdir=~/.vim-temp//
 set directory=~/.vim-temp//
 set undodir=~/.vim-temp//

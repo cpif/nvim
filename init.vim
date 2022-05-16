@@ -1,5 +1,49 @@
+" Default text display--------------------------------------{{{
+set encoding=utf-8
+set linebreak
+set tw=65
+set autoindent
+set number
+set rnu
+set foldlevelstart=0
+set foldmethod=marker
+" }}}
+
+" Display Settings------------------------------------------{{{
+colorscheme ron
+" Don't judge me:
 set statusline=¯\\_(ツ)_/¯\ \ \ FILE\ %-25.25f\ \ \ \ LINE\ %3l\ /\ %L\ \ \ \ COL\ %v
+" }}}
+
+" Text editing niceties---------------------------------------{{{
+" Print word count
+nnoremap <F4> :w<CR>:read!wc -w %<CR>
+
+" Print an outline
+nnoremap <F5> ggO<CR><ESC>:1!sed -n '/^\#/p' %<CR>
+
+" Insert a blank line above the current line
+nnoremap <M-o> O<ESC>
+" }}}
+
+" Better escaping
+inoremap jk <ESC>
+
+" Tab key---------------------------------------------------{{{
+set expandtab
+set tabstop=4
+set shiftwidth=4
+" }}}
+
+" Writer Mode----------------------------------------------{{{
+" I have two ways of working:
+" 1) With plaintext files I want to open in other programs that
+"    don't care about long lines
+" 2) With plaintext files I will only open in vim.
+"
+" Writer mode lets me hop between them.
 let g:writermode = 0
+nnoremap <F6> :exec Writermode()<CR>
 
 function Writermode()
     if g:writermode == 0
@@ -12,82 +56,20 @@ function Writermode()
         set tw=65
     endif
 endfunction
+" }}}
 
-" Colorschemes
-" colorscheme morning
-" colorscheme shine
-" My favorite colorscheme
-colorscheme ron
-
-set shell=/usr/bin/fish
-
-set dictionary=/usr/share/dict/american-english
-
-" Set folders for backup files
-set backupdir=~/.vim-temp//
-set directory=~/.vim-temp//
-set undodir=~/.vim-temp//
-
-" Set search path
-set path+=/home/cpif/**
-
-" Set the C Compiler as the program for `make`
-set makeprg=gcc\ %
-
-" Wrapping and text display
-set encoding=utf-8
-set linebreak
-set tw=65
-set autoindent
-set number
-set rnu
-
-" Settings related to the tab key
-set expandtab
-set tabstop=4
-set shiftwidth=4
-
-" Arrow mapping to windows
-nnoremap <UP> <C-w>k
-nnoremap <DOWN> <C-w>j
-nnoremap <LEFT> <C-w>h
-nnoremap <RIGHT> <C-w>l
-
-" Mapping function keys to window generation
-nnoremap <F2> <C-w>v
-nnoremap <F3> <C-w>s
-
-" Print word count
-nnoremap <F4> :w<CR>:read!wc -w %<CR>
-
-" Print an outline
-nnoremap <F5> ggO<CR><ESC>:1!sed -n '/^\#/p' %<CR>
-
-" Enter and leave writermode
-nnoremap <F6> :exec Writermode()<CR>
-
-" Escape mapping from an online guy
-inoremap jk <ESC>
-
-" Kill backspace
-inoremap <BS> "
-inoremap <DEL> '
-
-" Question mark
-inoremap <ESC> ?
-
-" Meta keys for stuff!
-inoremap <M-p> ()<ESC>i
-inoremap <M-i> **<ESC>i
-nnoremap <M-i> hea*<ESC>bi*<ESC>
-inoremap <M-b> ****<ESC>hi
-nnoremap <M-o> O<ESC>
-" Get out of the block
-inoremap ;; <ESC>A
+" Search path
+set path+=~/**
 
 cnorea myvimrc $MYVIMRC
 
-" File-specific settings
+" Externals-------------------------------------------------{{{
+set shell=/usr/bin/fish
+set dictionary=/usr/share/dict/american-english
+set makeprg=gcc\ %
+" }}}
+
+" File-specific settings -----------------------------------{{{
 augroup wrapless
     au!
     au Filetype html,awk,fish   setlocal tw=0
@@ -100,3 +82,41 @@ augroup spreadsheets
 augroup END
 
 au Filetype yaml   setlocal tabstop=2 shiftwidth=2
+" }}}
+
+" Use arrow keys to switch windows----------------------------{{{
+nnoremap <UP> <C-w>k
+nnoremap <DOWN> <C-w>j
+nnoremap <LEFT> <C-w>h
+nnoremap <RIGHT> <C-w>l
+" }}}
+
+" Single-key splits-------------------------------------------{{{
+nnoremap <F2> <C-w>v
+nnoremap <F3> <C-w>s
+" }}}
+
+" Tiny keyboard---------------------------------------------{{{
+" I have a tiny keyboard missing most of the important symbols.
+" These mappings are mostly for writing in markdown.
+
+" Backspace
+inoremap <BS> "
+" Question mark
+inoremap <ESC> ?
+" Parentheses
+inoremap <M-p> ()<ESC>i
+" Italics
+inoremap <M-i> **<ESC>i
+" Bold
+inoremap <M-b> ****<ESC>hi
+" Get out of the block
+inoremap ;; <ESC>A
+" }}}
+
+" Hide those pesky swapfiles------------------------------- {{{
+set backupdir=~/.vim-temp//
+set directory=~/.vim-temp//
+set undodir=~/.vim-temp//
+" }}}
+

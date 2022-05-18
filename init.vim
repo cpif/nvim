@@ -51,10 +51,14 @@ function Writermode()
         let g:writermode = 1
         set nonumber
         set tw=0
+        nnoremap j gj
+        nnoremap k gk
     else
         let g:writermode = 0
         set number
         set tw=65
+        unmap j
+        unmap k
     endif
 endfunction
 " }}}
@@ -91,6 +95,9 @@ nnoremap <UP> <C-w>k
 nnoremap <DOWN> <C-w>j
 nnoremap <LEFT> <C-w>h
 nnoremap <RIGHT> <C-w>l
+
+" Split previous buffer
+nnoremap <LEADER>p :rightbelow vsplit #<CR>
 " }}}
 
 " Single-key splits-------------------------------------------{{{
@@ -103,7 +110,7 @@ nnoremap <F3> <C-w>s
 " These mappings are mostly for writing in markdown.
 
 " Backspace
-inoremap <BS> "
+inoremap <DEL> "
 " Question mark
 inoremap <ESC> ?
 " Parentheses

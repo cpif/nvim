@@ -23,7 +23,7 @@ nnoremap <F4> :w<CR>:read!wc -w %<CR>
 nnoremap <F5> ggO<CR><ESC>:1!sed -n '/^\#/p' %<CR>
 
 " Insert a blank line above the current line
-nnoremap <M-o> O<ESC>
+nnoremap <M-o> O<ESC>D
 
 " Better escaping
 inoremap jk <ESC>

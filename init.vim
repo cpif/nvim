@@ -120,7 +120,7 @@ inoremap <M-i> **<ESC>i
 " Bold
 inoremap <M-b> ****<ESC>hi
 " Get out of the block
-inoremap ;; <ESC>A
+inoremap ;; <ESC>la
 " }}}
 
 " Hide those pesky swapfiles----------------------------------{{{

@@ -1,10 +1,12 @@
 " Default text display----------------------------------------{{{
 set encoding=utf-8
+set fileformat=unix
 set linebreak
 set tw=65
 set autoindent
 set number
 set rnu
+set nohlsearch
 set foldlevelstart=0
 set foldmethod=marker
 " }}}
@@ -25,8 +27,14 @@ nnoremap <F5> ggO<CR><ESC>:1!sed -n '/^\#/p' %<CR>
 " Insert a blank line above the current line
 nnoremap <M-o> O<ESC>D
 
+" Capitalize all word in normal mode
+nnoremap <leader>u gUaw
+
 " Better escaping
 inoremap jk <ESC>
+
+" Very magic searching
+nnoremap / /\v
 
 " }}}
 

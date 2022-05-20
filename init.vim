@@ -10,7 +10,7 @@ set foldmethod=marker
 " }}}
 
 " Display Settings--------------------------------------------{{{
-colorscheme morning
+colorscheme ron
 " Don't judge me:
 set statusline=¯\\_(ツ)_/¯\ \ \ FILE\ %-25.25f\ \ \ \ LINE\ %3l\ /\ %L\ \ \ \ COL\ %v
 " }}}
@@ -131,14 +131,15 @@ set undodir=~/.vim-temp//
 
 " Rudimentary cipher------------------------------------------{{{
 function Cipher()
+    %normal guu
     %normal g??
     %s/ /​/g
 endfunction
-nnoremap <F7> :call Cipher()
+nnoremap <F7> :call Cipher()<CR>
 
 function Decipher()
     %normal g??
     %s/​/ /g
 endfunction
-nnoremap <F8> :call Cipher()
+nnoremap <F8> :call Decipher()<CR>
 " }}}

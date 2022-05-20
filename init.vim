@@ -129,3 +129,16 @@ set directory=~/.vim-temp//
 set undodir=~/.vim-temp//
 " }}}
 
+" Rudimentary cipher------------------------------------------{{{
+function Cipher()
+    %normal g??
+    %s/ /​/g
+endfunction
+nnoremap <F7> :call Cipher()
+
+function Decipher()
+    %normal g??
+    %s/​/ /g
+endfunction
+nnoremap <F8> :call Cipher()
+" }}}

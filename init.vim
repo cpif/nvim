@@ -1,4 +1,4 @@
-" Default text display----------------------------------------{{{
+" Default text display {{{
 set encoding=utf-8
 set fileformat=unix
 set linebreak
@@ -11,13 +11,13 @@ set foldlevelstart=0
 set foldmethod=marker
 " }}}
 
-" Display Settings--------------------------------------------{{{
-colorscheme ron
+" Display Settings {{{
+colorscheme default
 " Don't judge me:
 set statusline=¯\\_(ツ)_/¯\ \ \ FILE\ %-25.25f\ \ \ \ LINE\ %3l\ /\ %L\ \ \ \ COL\ %v
 " }}}
 
-" Text editing niceties---------------------------------------{{{
+" Text editing niceties {{{
 " Print word count
 nnoremap <F4> :w<CR>:read!wc -w %<CR>
 
@@ -38,13 +38,13 @@ nnoremap / /\v
 
 " }}}
 
-" Tab key-----------------------------------------------------{{{
+" Tab key {{{
 set expandtab
 set tabstop=4
 set shiftwidth=4
 " }}}
 
-" Writer Mode-------------------------------------------------{{{
+" Writer Mode {{{
 " I have two ways of working:
 " 1) With plaintext files I want to open in other programs that
 "    don't care about long lines
@@ -77,13 +77,13 @@ set path+=~/**
 " I don't like capitalizing
 cnorea myvimrc $MYVIMRC
 
-" Externals---------------------------------------------------{{{
+" Externals {{{
 set shell=/usr/bin/fish
 set dictionary=/usr/share/dict/american-english
 set makeprg=gcc\ %
 " }}}
 
-" File-specific settings -------------------------------------{{{
+" File-specific settings {{{
 augroup wrapless
     au!
     au Filetype html,awk,fish   setlocal tw=0
@@ -98,7 +98,7 @@ augroup END
 au Filetype yaml   setlocal tabstop=2 shiftwidth=2
 " }}}
 
-" Use arrow keys to switch windows----------------------------{{{
+" Use arrow keys to switch windows {{{
 nnoremap <UP> <C-w>k
 nnoremap <DOWN> <C-w>j
 nnoremap <LEFT> <C-w>h
@@ -108,12 +108,12 @@ nnoremap <RIGHT> <C-w>l
 nnoremap <LEADER>p :rightbelow vsplit #<CR>
 " }}}
 
-" Single-key splits-------------------------------------------{{{
+" Single-key splits {{{
 nnoremap <F2> <C-w>v
 nnoremap <F3> <C-w>s
 " }}}
 
-" Tiny keyboard-----------------------------------------------{{{
+" Tiny keyboard {{{
 " I have a tiny keyboard missing most of the important symbols.
 " These mappings are mostly for writing in markdown.
 
@@ -131,13 +131,13 @@ inoremap <M-b> ****<ESC>hi
 inoremap ;; <ESC>la
 " }}}
 
-" Hide those pesky swapfiles----------------------------------{{{
+" Hide those pesky swapfiles {{{
 set backupdir=~/.vim-temp//
 set directory=~/.vim-temp//
 set undodir=~/.vim-temp//
 " }}}
 
-" Rudimentary cipher------------------------------------------{{{
+" Rudimentary cipher {{{
 function Cipher()
     %normal guu
     %normal g??

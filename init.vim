@@ -25,16 +25,17 @@ nnoremap <F4> :w<CR>:read!wc -w %<CR>
 nnoremap <F5> ggO<CR><ESC>:1!sed -n '/^\#/p' %<CR>
 
 " Insert a blank line above the current line
-nnoremap <M-o> O<ESC>D
+nnoremap <leader>o O<ESC>D
 
 " Capitalize all word in normal mode
 nnoremap <leader>u gUaw
 
 " Better escaping
-inoremap jk <ESC>
+" inoremap jk <ESC>
 
 " Very magic searching
 nnoremap / /\v
+nnoremap ? ?\v
 
 " }}}
 
@@ -118,17 +119,17 @@ nnoremap <F3> <C-w>s
 " These mappings are mostly for writing in markdown.
 
 " Backspace
-inoremap <DEL> "
+" inoremap <DEL> "
 " Question mark
-inoremap <ESC> ?
+" inoremap <ESC> ?
 " Parentheses
-inoremap <M-p> ()<ESC>i
+" inoremap <M-p> ()<ESC>i
 " Italics
-inoremap <M-i> **<ESC>i
+" inoremap <M-i> **<ESC>i
 " Bold
-inoremap <M-b> ****<ESC>hi
+" inoremap <M-b> ****<ESC>hi
 " Get out of the block
-inoremap ;; <ESC>la
+" inoremap ;; <ESC>la
 " }}}
 
 " Hide those pesky swapfiles {{{

@@ -60,14 +60,10 @@ function Writermode()
         let g:writermode = 1
         set nonumber
         set tw=0
-        nnoremap j gj
-        nnoremap k gk
     else
         let g:writermode = 0
         set number
         set tw=65
-        unmap j
-        unmap k
     endif
 endfunction
 " }}}

@@ -31,7 +31,7 @@ nnoremap <leader>o O<ESC>D
 nnoremap <leader>u gUaw
 
 " Better escaping
-" inoremap jk <ESC>
+inoremap jk <ESC>
 
 " Very magic searching
 nnoremap / /\v

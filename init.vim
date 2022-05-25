@@ -18,8 +18,6 @@ set statusline=¯\\_(ツ)_/¯\ \ \ FILE\ %-25.25f\ \ \ \ LINE\ %3l\ /\ %L\ \ \ \
 " }}}
 
 " Text editing niceties {{{
-" Print word count
-nnoremap <F4> :w<CR>:read!wc -w %<CR>
 
 " Print an outline
 nnoremap <F5> ggO<CR><ESC>:1!sed -n '/^\#/p' %<CR>

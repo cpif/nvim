@@ -103,11 +103,6 @@ nnoremap <RIGHT> <C-w>l
 nnoremap <LEADER>p :rightbelow vsplit #<CR>
 " }}}
 
-" Single-key splits {{{
-nnoremap <F2> <C-w>v
-nnoremap <F3> <C-w>s
-" }}}
-
 " Tiny keyboard {{{
 " I have a tiny keyboard missing most of the important symbols.
 " These mappings are mostly for writing in markdown.

@@ -13,6 +13,9 @@ set foldmethod=marker
 
 " Display Settings {{{
 colorscheme default
+hi Normal ctermfg=grey      ctermbg=black
+hi LineNr ctermfg=lightgrey
+
 " Don't judge me:
 set statusline=¯\\_(ツ)_/¯\ \ \ FILE\ %-25.25f\ \ \ \ LINE\ %3l\ /\ %L\ \ \ \ COL\ %v
 " }}}

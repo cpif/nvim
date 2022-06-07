@@ -13,8 +13,10 @@ set foldmethod=marker
 
 " Display Settings {{{
 colorscheme default
-hi Normal ctermfg=grey      ctermbg=black
-hi LineNr ctermfg=lightgrey
+hi Normal       ctermfg=grey      ctermbg=black
+hi LineNr       ctermfg=lightgrey
+hi Folded       ctermfg=black     ctermbg=cyan
+hi FoldColumn   ctermfg=cyan      ctermbg=black
 
 " Don't judge me:
 set statusline=¯\\_(ツ)_/¯\ \ \ FILE\ %-25.25f\ \ \ \ LINE\ %3l\ /\ %L\ \ \ \ COL\ %v

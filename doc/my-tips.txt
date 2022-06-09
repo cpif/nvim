@@ -1,7 +1,7 @@
 *my-tips.txt*        TIPS AND TRICKS FOR THE IDIOT.
 
 =================================================================
-COLUMN WIDTH                                       *table-widths*
+COLUMN WIDTH                                         *table-widths*
 
 Column width calculation for plaintext tables, where: 
 
@@ -12,5 +12,27 @@ W = width of text desired (i.e. 20)
     W = ((T - 1) / N) - 3
 <
 When pasting columns, you should paste at W + 3.
+
+=================================================================
+HEX COLORS THAT ARE ALSO WORDS                          *hex-words*
+
+WORD        COLOR           ~
+#DECADE     Light purple
+#FACADE     Light salmonish pink
+#BEADED     Blueish purple
+#BEDDED     Greenish sky blue
+#DEFACE     Sea green
+#ACCEDE     Steel blue
+#BACCAE     Olivish/military green
+#BAFFED     Cyan
+#BEEBEE     Tealish
+#BEEFED     Greenish teal
+#CABBED     Light purple
+#DABBED     Purplish pink
+#DAFFED     Seafoam green
+#DEEDED     Very light steel blue
+#EFFACE     Puke green
+#C0FFEE     Light teal
+#D00D00     Cherry
 
 vim:tw=65:ts=4:ft=help

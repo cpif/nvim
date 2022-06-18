@@ -3,8 +3,8 @@ require('cipher')
 -- }}}
 
 -- Initialize working directory {{{
-if vim.fn.getcwd() == 'C:\\Users\\samue\\NVIM\\nvim-win64\\bin' then
-  vim.cmd('cd C:\\Users\\samue\\Dropbox\\note')
+if vim.fn.getcwd() == '~\\NVIM\\nvim-win64\\bin' then
+  vim.cmd('cd ~\\Dropbox\\note')
 end
 -- }}}
 

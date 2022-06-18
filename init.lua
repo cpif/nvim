@@ -1,10 +1,18 @@
--- Require {{{
+-- Requirements {{{
 require('cipher')
 -- }}}
 
+-- Initialize working directory {{{
+if vim.fn.getcwd() == 'C:\\Users\\samue\\NVIM\\nvim-win64\\bin' then
+  vim.cmd('cd C:\\Users\\samue\\Dropbox\\note')
+end
+-- }}}
+
 -- Default options {{{
-local options           = vim.o
+local options = vim.o
+
 local dropbox = '/mnt/c/Users/samue/Dropbox/note/**'
+local site    = '/home/bag/Site/**'
 
 options.encoding        = 'utf-8'
 options.fileformat      = 'unix'
@@ -19,28 +27,35 @@ options.foldmethod      = 'marker'
 options.expandtab       = true
 options.tabstop         = 4
 options.shiftwidth      = 4
-options.path            = dropbox
+options.guifont = "Courier:h16"
+options.path            = dropbox..','..site
 options.shell           = '/usr/bin/fish'
 options.dictionary      = '/usr/share/dict/american-english'
 options.makeprg         = 'gcc %'
 -- }}}
 
 -- Display settings {{{
-vim.api.nvim_set_hl(0, 'Normal', {
-  ctermfg='grey',
-  ctermbg='black'
-})
+local basic = {
+  foreground  = 'black',
+  background  = '#eeeeee',
+  ctermfg     = 'grey',
+  ctermbg     = 'black'
+}
 
-vim.api.nvim_set_hl(0, 'LineNr', {
-  ctermfg='lightgrey'
-})
+vim.api.nvim_set_hl(0, 'Normal', basic)
+
+vim.api.nvim_set_hl(0, 'LineNr', basic)
 
 vim.api.nvim_set_hl(0, 'Folded', {
+  foreground  = 'black',
+  background  = '#eeeeee',
   ctermfg='black',
   ctermbg='darkcyan'
 })
 
 vim.api.nvim_set_hl(0, 'FoldColumn', {
+  foreground  = 'black',
+  background  = '#eeeeee',
   ctermfg='darkcyan',
   ctermbg='black'
 })
@@ -85,7 +100,7 @@ vim.keymap.set('i', 'jk',        '<esc>')
 vim.api.nvim_exec('cnorea myvimrc $MYVIMRC', false)
 --}}}
 
--- Paths {{{
+-- Undo and swap directories {{{
 vim.api.nvim_exec('set backupdir=~/.vim-temp//', false)
 vim.api.nvim_exec('set directory=~/.vim-temp//', false)
 vim.api.nvim_exec('set undodir=~/.vim-temp//', false)

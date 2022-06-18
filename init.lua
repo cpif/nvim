@@ -2,12 +2,6 @@
 require('cipher')
 -- }}}
 
--- Initialize working directory {{{
-if vim.fn.getcwd() == '~\\NVIM\\nvim-win64\\bin' then
-  vim.cmd('cd ~\\Dropbox\\note')
-end
--- }}}
-
 -- Default options {{{
 local options = vim.o
 

@@ -5,9 +5,6 @@ require('cipher')
 -- Default options {{{
 local options = vim.o
 
-local dropbox = '/mnt/c/Users/samue/Dropbox/note/**'
-local site    = '/home/bag/Site/**'
-
 options.encoding        = 'utf-8'
 options.fileformat      = 'unix'
 options.linebreak       = true
@@ -22,7 +19,6 @@ options.expandtab       = true
 options.tabstop         = 4
 options.shiftwidth      = 4
 options.guifont = "Courier:h16"
-options.path            = dropbox..','..site
 options.shell           = '/usr/bin/fish'
 options.dictionary      = '/usr/share/dict/american-english'
 options.makeprg         = 'gcc %'

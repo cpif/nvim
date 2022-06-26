@@ -37,6 +37,10 @@ vim.api.nvim_set_hl(0, 'Normal', basic)
 
 vim.api.nvim_set_hl(0, 'LineNr', basic)
 
+vim.api.nvim_set_hl(0, 'Pmenu', basic)
+
+vim.api.nvim_set_hl(0, 'FloatBorder', basic)
+
 vim.api.nvim_set_hl(0, 'Folded', {
   foreground  = 'black',
   background  = '#eeeeee',

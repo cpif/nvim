@@ -1,5 +1,6 @@
 -- Requirements {{{
 require('cipher')
+require('notepad')
 -- }}}
 
 -- Default options {{{
@@ -82,6 +83,9 @@ vim.keymap.set('n', '<left>',    '<C-w>h')
 vim.keymap.set('n', '<right>',   '<C-w>l')
 -- Open previous buffer in split
 vim.keymap.set('n', '<leader>p', '<cmd>rightbelow vsplit #<cr>')
+---[[ Open scratchpad
+vim.keymap.set('n', '<leader>s', '<cmd>luado scratchpad()<cr>')
+--]]
 -- Cipher buffer
 vim.keymap.set('n', '<leader>c', '<cmd>luado return encipher(line)<cr>')
 -- Better normal mode

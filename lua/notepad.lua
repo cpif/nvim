@@ -1,11 +1,10 @@
-local scratchopen = false
-local api         = vim.api
+scratchopen = false
+local api   = vim.api
 local buf, win
 
 function scratchpad()
   if scratchopen == false then
-    scratchopen  = true
-    buf          = api.nvim_create_buf(false, false)
+    buf           = api.nvim_create_buf(false, true)
     
     api.nvim_buf_set_option(buf, 'bufhidden', 'wipe')
     api.nvim_buf_set_option(buf, 'buftype', 'nofile')
@@ -28,8 +27,11 @@ function scratchpad()
     }
 
     win = api.nvim_open_win(buf, true, opts)
+    print(win)
+    scratchopen   = true
   else
-    scratchopen = false
     api.nvim_win_close(win, true)
+    print(win)
+    scratchopen = false
   end
 end

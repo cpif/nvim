@@ -61,7 +61,7 @@ function setstatus()
   local line = '%l'
   local column = '%v'
   return string.format(
-    '%-20.20s FILE: %-25.25s LINE: %3s COL: %s',
+    '%-13s %.40s LINE:%3s/COL:%3s',
     shrug,
     file,
     line,
@@ -86,10 +86,9 @@ vim.keymap.set('n', '<down>',    '<C-w>j')
 vim.keymap.set('n', '<left>',    '<C-w>h')
 vim.keymap.set('n', '<right>',   '<C-w>l')
 -- Open previous buffer in split
-vim.keymap.set('n', '<leader>p', '<cmd>rightbelow vsplit #<cr>')
----[[ Open scratchpad
+vim.keymap.set('n', '<leader>p', '<cmd>rightbelow split #<cr>')
+-- Open scratchpad
 vim.keymap.set('n', '<leader>s', '<cmd>luado scratchpad()<cr>')
---]]
 -- Cipher buffer
 vim.keymap.set('n', '<leader>c', '<cmd>luado return encipher(line)<cr>')
 -- Better normal mode

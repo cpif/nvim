@@ -3,12 +3,15 @@ local todobuf, todowin
 function opentodo()
   todobuf = vim.api.nvim_create_buf(false, false)
 
+
   local width      = vim.api.nvim_get_option("columns")
   local height     = vim.api.nvim_get_option("lines")
   local win_width  = math.ceil(width  * 0.6)
   local win_height = math.ceil(height * 0.6 - 4)
   local col        = math.ceil((width  - win_width ) / 2)
   local row        = math.ceil((height - win_height) / 2 - 1)
+
+  vim.api.nvim_buf_set_option(todobuf, 'textwidth', win_width - 2)
 
   local opts = {
     style    = "minimal",

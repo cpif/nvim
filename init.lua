@@ -1,7 +1,13 @@
--- Requirements {{{
+-- Global variables {{{
+todofile = '~/.todo.md'
+todoopen = false
 scratchopen = false
+-- }}}
+
+-- Requirements {{{
 require('cipher')
 require('notepad')
+require('todo')
 -- }}}
 
 -- Default options {{{
@@ -88,6 +94,16 @@ vim.keymap.set('n', '<left>',    '<C-w>h')
 vim.keymap.set('n', '<right>',   '<C-w>l')
 -- Open previous buffer in split
 vim.keymap.set('n', '<leader>p', '<cmd>rightbelow split #<cr>')
+-- Open todo list
+vim.keymap.set('n', '<leader>t', function ()
+  if todoopen == false then
+    opentodo()
+    todoopen = true
+  else
+    closetodo()
+    todoopen = false
+  end
+end)
 -- Open scratchpad
 vim.keymap.set('n', '<leader>s', function ()
   if scratchopen == false then

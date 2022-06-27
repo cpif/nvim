@@ -1,7 +1,7 @@
 local todobuf, todowin
 
 function opentodo()
-  todobuf = vim.api.nvim_create_buf(false, false)
+  todobuf          = vim.api.nvim_create_buf(false, false)
 
   local width      = vim.api.nvim_get_option("columns")
   local height     = vim.api.nvim_get_option("lines")
@@ -10,14 +10,14 @@ function opentodo()
   local col        = math.ceil((width  - win_width ) / 2)
   local row        = math.ceil((height - win_height) / 2 - 1)
 
-  local opts = {
-    style    = "minimal",
-    relative = "editor",
-    border   = "double",
-    width    = win_width,
-    height   = win_height,
-    row      = row,
-    col      = col
+  local opts       = {
+    style          = "minimal",
+    relative       = "editor",
+    border         = "double",
+    width          = win_width,
+    height         = win_height,
+    row            = row,
+    col            = col
   }
 
   todowin = vim.api.nvim_open_win(todobuf, true, opts)

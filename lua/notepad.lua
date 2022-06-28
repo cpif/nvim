@@ -25,7 +25,6 @@ function scratchpad()
   }
 
   win = api.nvim_open_win(buf, true, opts)
-  scratchopen   = true
 end
 
 function cscratchpad()

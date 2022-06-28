@@ -1,7 +1,7 @@
 -- Global variables {{{
 bibfile = '~/Bibliography/bibliography.bib'
 bibopen = false
-todofile = '~/.clerical/todo.md'
+todofile = '~/.todo.md'
 todoopen = false
 scratchopen = false
 -- }}}

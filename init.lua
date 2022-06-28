@@ -1,7 +1,16 @@
--- Requirements {{{
+-- Global variables {{{
+bibfile = '~/Bibliography/bibliography.bib'
+bibopen = false
+todofile = '~/.todo.md'
+todoopen = false
 scratchopen = false
+-- }}}
+
+-- Requirements {{{
 require('cipher')
 require('notepad')
+require('todo')
+require('floatwin')
 -- }}}
 
 -- Default options {{{
@@ -88,6 +97,27 @@ vim.keymap.set('n', '<left>',    '<C-w>h')
 vim.keymap.set('n', '<right>',   '<C-w>l')
 -- Open previous buffer in split
 vim.keymap.set('n', '<leader>p', '<cmd>rightbelow split #<cr>')
+-- Open bibliography
+vim.keymap.set('n', '<leader>b', function()
+  if bibopen == false then
+    bibbuf, bibwindow = makenewwindow(0.8, 0.8, false, bibfile)
+    bibopen = true
+  else
+    closenewwindow(bibwindow, true)
+    bibopen = false
+  end
+  return 0
+end)
+-- Open todo list
+vim.keymap.set('n', '<leader>t', function ()
+  if todoopen == false then
+    opentodo()
+    todoopen = true
+  else
+    closetodo()
+    todoopen = false
+  end
+end)
 -- Open scratchpad
 vim.keymap.set('n', '<leader>s', function ()
   if scratchopen == false then

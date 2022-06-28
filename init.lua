@@ -151,6 +151,7 @@ vim.api.nvim_create_autocmd("FileType", {
   once    = false,
   pattern = {"yaml",
              "lua",
+             "html",
 }})
 
 vim.api.nvim_create_autocmd("FileType", {
@@ -158,5 +159,6 @@ vim.api.nvim_create_autocmd("FileType", {
   once    = false,
   pattern = {"yaml",
              "lua",
+             "html",
 }})
 -- }}}

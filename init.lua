@@ -97,6 +97,11 @@ vim.keymap.set('n', '<left>',    '<C-w>h')
 vim.keymap.set('n', '<right>',   '<C-w>l')
 -- Open previous buffer in split
 vim.keymap.set('n', '<leader>p', '<cmd>rightbelow split #<cr>')
+-- Clean up punctuation
+vim.keymap.set('n', '<leader>q', function()
+    require('cleanquotes')
+    quoteclean()
+end)
 -- Open bibliography
 vim.keymap.set('n', '<leader>b', function()
   if bibopen == false then

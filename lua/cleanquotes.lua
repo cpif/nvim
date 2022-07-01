@@ -6,7 +6,7 @@ removes all "smart" quotes, n-dashes, and m-dashes.
 --]]
 
 function quoteclean()
-  vim.cmd('%s/ \\?\\(—\\|–\\) \\?/ -- /g')
-  vim.cmd('%s/“\\|”/"/g')
-  vim.cmd('%s/‘\\|’/\'/g')
+  vim.cmd('%s/‘\\|’/\'/ge')
+  vim.cmd('%s/“\\|”/"/ge')
+  vim.cmd('%s/ \\?\\(—\\|–\\) \\?/ -- /ge')
 end

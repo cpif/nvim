@@ -12,3 +12,7 @@ vim.api.nvim_set_hl(0, 'markdownHeadingDelimiter',  headers)
 vim.api.nvim_set_hl(0, 'markdownFootnote', { ctermfg='green'})
 vim.api.nvim_set_hl(0, 'markdownUrl', { ctermfg='lightgreen'})
 
+vim.g.markdown_fenced_languages = {
+  'awk', 'lua', 'perl', 'html',
+  'sh', 'bash',
+}

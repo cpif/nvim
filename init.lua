@@ -4,6 +4,10 @@ bibopen = false
 todofile = '~/.todo.md'
 todoopen = false
 scratchopen = false
+vim.g.markdown_fenced_languages = {
+  'awk', 'lua', 'perl', 'html',
+  'sh', 'bash',
+}
 -- }}}
 
 -- Requirements {{{

@@ -6,7 +6,7 @@ todoopen = false
 scratchopen = false
 vim.g.markdown_fenced_languages = {
   'awk', 'lua', 'perl', 'html',
-  'sh', 'bash',
+  'sh', 'bash', 'bib',
 }
 -- }}}
 
@@ -141,6 +141,8 @@ end)
 vim.keymap.set('n', '<leader>c', '<cmd>luado return encipher(line)<cr>')
 -- Better normal mode
 vim.keymap.set('i', 'jk',        '<esc>')
+-- Cite
+vim.keymap.set('i', '<M-c>',        '')
 -- I don't like capitalizing
 vim.api.nvim_exec('cnorea myvimrc $MYVIMRC', false)
 --}}}

@@ -91,9 +91,6 @@ vim.o.statusline = setstatus()
 vim.keymap.set('n', '<leader>o', 'O<esc>D')
 -- Capitalize entire word
 vim.keymap.set('n', '<leader>u', 'gUaw')
--- Magic searching
-vim.keymap.set('n', '/',         '/\\v')
-vim.keymap.set('n', '?',         '?\\v')
 -- Better moving between windows
 vim.keymap.set('n', '<up>',      '<C-w>k')
 vim.keymap.set('n', '<down>',    '<C-w>j')
@@ -144,13 +141,13 @@ vim.keymap.set('i', 'jk',        '<esc>')
 -- Cite
 vim.keymap.set('i', '<M-c>',        '')
 -- I don't like capitalizing
-vim.api.nvim_exec('cnorea myvimrc $MYVIMRC', false)
+vim.cmd('cnorea myvimrc $MYVIMRC', false)
 --}}}
 
 -- Undo and swap directories {{{
-vim.api.nvim_exec('set backupdir=~/.vim-temp//', false)
-vim.api.nvim_exec('set directory=~/.vim-temp//', false)
-vim.api.nvim_exec('set undodir=~/.vim-temp//', false)
+vim.cmd('set backupdir=~/.vim-temp//', false)
+vim.cmd('set directory=~/.vim-temp//', false)
+vim.cmd('set undodir=~/.vim-temp//', false)
 -- }}}
 
 -- Filetype-specific settings {{{

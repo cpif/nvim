@@ -32,5 +32,5 @@ local foldh   = {
   'Folded', 'FoldColumn',
 }
 
-sethi(normal, normalh)
+sethi(fold, foldh)
 -- }}}

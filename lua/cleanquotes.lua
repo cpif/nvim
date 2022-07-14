@@ -9,4 +9,5 @@ function quoteclean()
   vim.cmd('%s/‘\\|’/\'/ge')
   vim.cmd('%s/“\\|”/"/ge')
   vim.cmd('%s/ \\?\\(—\\|–\\) \\?/ -- /ge')
+  vim.cmd('%s/\\(\\."\\?\\)\\d\\+/\\1/ge')
 end

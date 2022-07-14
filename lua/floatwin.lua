@@ -1,15 +1,15 @@
-local api   = vim.api
+local api = vim.api
 local buf, win
 
 function makenewwindow(widthratio, heightratio, isscratch, filen)
   buf = api.nvim_create_buf(false, isscratch)
 
-  local width = api.nvim_get_option("columns")
-  local height = api.nvim_get_option("lines")
-  local win_width = math.ceil(width * widthratio)
+  local width      = api.nvim_get_option("columns")
+  local height     = api.nvim_get_option("lines")
+  local win_width  = math.ceil(width * widthratio)
   local win_height = math.ceil(height * heightratio - 4)
-  local col = math.ceil((width - win_width) / 2)
-  local row = math.ceil((height - win_height) / 2 - 1)
+  local col        = math.ceil((width - win_width) / 2)
+  local row        = math.ceil((height - win_height) / 2 - 1)
 
   local opts = {
     style          = "minimal",

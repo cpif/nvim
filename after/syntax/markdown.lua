@@ -1,14 +1,17 @@
-local headers = {
-  ctermfg='white',
-  ctermbg='blue',
-  cterm = { bold=true }
+local headers  = {
+  ctermfg      ='white',
+  ctermbg      ='blue',
+  cterm        = {
+    bold       = true,
+  }
 }
 
-vim.api.nvim_set_hl(0, 'markdownH1',                headers)
-vim.api.nvim_set_hl(0, 'markdownH2',                headers)
-vim.api.nvim_set_hl(0, 'markdownH3',                headers)
-vim.api.nvim_set_hl(0, 'markdownHeadingDelimiter',  headers)
+local headersh = {
+  'markdownH1', 'markdownH2', 'markdownH3',
+  'markdownHeadingDelimiter',
+}
+
+sethi(headers, headersh)
 
 vim.api.nvim_set_hl(0, 'markdownFootnote', { ctermfg='green'})
 vim.api.nvim_set_hl(0, 'markdownUrl', { ctermfg='lightgreen'})
-

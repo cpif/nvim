@@ -1,19 +1,39 @@
--- Delete unwanted copy-paste artifacts
-vim.keymap.set('n', '<leader>q', function()
-	require('quoteclean')
-	quoteclean()
-end)
+--[[ Floating Windows {{{
+
+The following section creates mappings for "floating windows" --
+which the nvim documentation says are "useful to implement simple
+widgets, such as tooltips displayed next to the cursor." Indeed
+they are.
+
+I have "implemented" a few "widgets" here:
+
+- A bibliography;
+- A todo list;
+- A scratchpad for taking on-the-fly notes that instantly delete
+  themselves.
+
+To see the functions that generate these floating windows, go to:
+lua/floatingwindows.lua
+
+To get a sense of the tables that get passed to those functions
+work, look a few lines down at the commented "bibliography"
+table.
+
+]]
 
 require('floatingwindows')
+
+-- The following table contains everything you need to make a
+-- floating window.
 bibliography  = {
   file        = '~/Bibliography/bibliography.bib',
-  open        = false,
-  leader      = 'b',
-  scratch     = false,
-  size        = { 0.8, 0.8 },
-  buffer      = 0,
-  window      = 0,
-  write       = true,
+  open        = false,        -- The float is not open... yet
+  leader      = 'b',          -- Press <leader> then "b" to open float
+  scratch     = false,        -- "Scratch" will make buffer delete instantly
+  size        = { 0.8, 0.8 }, -- Width ratio, height ratio
+  buffer      = 0,            -- Buffer number (initialized to zero)
+  window      = 0,            -- Buffer window (initialized to zero)
+  write       = true,         -- Should the buffer be written?
 }
 mapfloatingwindow(bibliography)
 
@@ -40,6 +60,14 @@ scratchpad    = {
   write       = false,
 }
 mapfloatingwindow(scratchpad)
+
+--}}}
+
+-- Delete unwanted copy-paste artifacts
+vim.keymap.set('n', '<leader>q', function()
+	require('quoteclean')
+	quoteclean()
+end)
 
 -- Codeblock fencing -- should this be in another file?
 vim.g.markdown_fenced_languages = {

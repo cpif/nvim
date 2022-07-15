@@ -34,6 +34,9 @@ function makefloatingwindow(table)
   if table.scratch == false then
     vim.cmd('edit ' .. table.file)
   end
+  for k,v in pairs(table.options) do
+    vim.bo[k] = v
+  end
   table.open = true
 end
 

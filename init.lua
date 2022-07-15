@@ -34,6 +34,7 @@ bibliography  = {
   buffer      = 0,            -- Buffer number (initialized to zero)
   window      = 0,            -- Buffer window (initialized to zero)
   write       = true,         -- Should the buffer be written?
+  options     = {}            -- Table of buffer-local options
 }
 mapfloatingwindow(bibliography)
 
@@ -46,6 +47,9 @@ todolist      = {
   buffer      = 0,
   window      = 0,
   write       = true,
+  options     = {
+    textwidth = 0,
+  }
 }
 mapfloatingwindow(todolist)
 
@@ -58,6 +62,9 @@ scratchpad    = {
   buffer      = 0,
   window      = 0,
   write       = false,
+  options     = {
+    textwidth = 0,
+  }
 }
 mapfloatingwindow(scratchpad)
 

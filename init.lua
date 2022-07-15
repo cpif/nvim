@@ -6,60 +6,42 @@ vim.keymap.set('n', '<leader>q', function()
   vim.cmd('%s/\\(\\."\\?\\)\\d\\+/\\1/ge')
 end)
 
--- Open bibliography
-bibfile = '~/Bibliography/bibliography.bib'
-bibopen = false
-vim.keymap.set('n', '<leader>b', function()
-  if bibopen == false then
-    bibbuf, bibwindow = makenewwindow(
-      0.8,      -- Width ratio
-      0.8,      -- Height ratio
-      false,    -- Not a scratch buffer
-      bibfile   -- File name
-    )
-    bibopen = true
-  else
-    closenewwindow(bibwindow, true)
-    bibopen = false
-  end
-  return 0
-end)
+require('floatingwindows')
+bibliography  = {
+  file        = '~/Bibliography/bibliography.bib',
+  open        = false,
+  leader      = 'b',
+  scratch     = false,
+  size        = { 0.8, 0.8 },
+  buffer      = 0,
+  window      = 0,
+  write       = true,
+}
+mapfloatingwindow(bibliography)
 
--- Open todo list
-todofile = '~/.todo.md'
-todoopen = false
-vim.keymap.set('n', '<leader>t', function ()
-  if todoopen == false then
-    todobuf, todowindow = makenewwindow(
-      0.6,      -- Width ratio
-      0.6,      -- Height ratio
-      false,    -- Not a scratch buffer
-      todofile  -- File name
-    )
-    todoopen = true
-    vim.bo.textwidth = 0
-  else
-    closenewwindow(todowindow, true)
-    todoopen = false
-  end
-end)
+todolist      = {
+  file        = '~/.todo.md',
+  open        = false,
+  leader      = 't',
+  scratch     = false,
+  size        = { 0.6, 0.6 },
+  buffer      = 0,
+  window      = 0,
+  write       = true,
+}
+mapfloatingwindow(todolist)
 
--- Open scratchpad
-scratchopen = false
-vim.keymap.set('n', '<leader>s', function ()
-  if scratchopen == false then
-    scratchbuf, scratchwindow = makenewwindow(
-      0.8,      -- Width ratio
-      0.8,      -- Height ratio
-      true,     -- It's true that it's a "scratch" buffer
-      'scratch' -- Bogus placeholder filename for scratch buffer
-    )
-    scratchopen = true
-  else
-    closenewwindow(scratchwindow, false)
-    scratchopen = false
-  end
-end)
+scratchpad    = {
+  file        = 'scratch',
+  open        = false,
+  leader      = 's',
+  scratch     = true,
+  size        = { 0.8, 0.8 },
+  buffer      = 0,
+  window      = 0,
+  write       = false,
+}
+mapfloatingwindow(scratchpad)
 
 -- Codeblock fencing -- should this be in another file?
 vim.g.markdown_fenced_languages = {

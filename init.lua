@@ -1,9 +1,7 @@
 -- Delete unwanted copy-paste artifacts
 vim.keymap.set('n', '<leader>q', function()
-  vim.cmd('%s/‘\\|‛\\|’/\'/ge')
-  vim.cmd('%s/“\\|‟\\|”/"/ge')
-  vim.cmd('%s/ \\?\\(—\\|–\\) \\?/ -- /ge')
-  vim.cmd('%s/\\(\\."\\?\\)\\d\\+/\\1/ge')
+	require('quoteclean')
+	quoteclean()
 end)
 
 require('floatingwindows')
@@ -51,7 +49,6 @@ vim.g.markdown_fenced_languages = {
 
 -- Requirements -- obviously these go somewhere else
 require('cipher')
-require('floatwin')
 
 -- Default options
 -- I like the idea of keeping these in the init.lua

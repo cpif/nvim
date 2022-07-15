@@ -1,8 +1,9 @@
 --[[
 
 This file is a testament to how it may, sometimes, be simpler to
-do it in vimscript. *Or*, what's more likely, I've done this in a
-stupid way.
+do it in vimscript.
+
+TODO: find out if there's a less stupid way.
 
 ]]
 

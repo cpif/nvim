@@ -1,8 +1,4 @@
---[[
-
-Set the status line.
-
-]]
+-- Set the status line.
 
 function setstatus()
   local shrug = '¯\\_(ツ)_/¯'

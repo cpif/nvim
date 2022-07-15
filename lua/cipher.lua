@@ -1,3 +1,10 @@
+--[[
+
+This is a version of the cipher Wittgenstein used on the verso
+side of his diaries... only he enciphered in his head.
+
+]]
+
 code = {
   a="z", b="y", c="x", d="w", e="v",
   f="u", g="t", h="s", i="r", j="q",

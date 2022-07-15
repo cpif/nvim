@@ -1,27 +1,90 @@
--- Global variables {{{
+-- Delete unwanted copy-paste artifacts
+vim.keymap.set('n', '<leader>q', function()
+  vim.cmd('%s/‘\\|‛\\|’/\'/ge')
+  vim.cmd('%s/“\\|‟\\|”/"/ge')
+  vim.cmd('%s/ \\?\\(—\\|–\\) \\?/ -- /ge')
+  vim.cmd('%s/\\(\\."\\?\\)\\d\\+/\\1/ge')
+end)
+
+-- Open bibliography
 bibfile = '~/Bibliography/bibliography.bib'
 bibopen = false
+vim.keymap.set('n', '<leader>b', function()
+  if bibopen == false then
+    bibbuf, bibwindow = makenewwindow(
+      0.8,      -- Width ratio
+      0.8,      -- Height ratio
+      false,    -- Not a scratch buffer
+      bibfile   -- File name
+    )
+    bibopen = true
+  else
+    closenewwindow(bibwindow, true)
+    bibopen = false
+  end
+  return 0
+end)
+
+-- Open todo list
 todofile = '~/.todo.md'
 todoopen = false
+vim.keymap.set('n', '<leader>t', function ()
+  if todoopen == false then
+    todobuf, todowindow = makenewwindow(
+      0.6,      -- Width ratio
+      0.6,      -- Height ratio
+      false,    -- Not a scratch buffer
+      todofile  -- File name
+    )
+    todoopen = true
+    vim.bo.textwidth = 0
+  else
+    closenewwindow(todowindow, true)
+    todoopen = false
+  end
+end)
+
+-- Open scratchpad
 scratchopen = false
+vim.keymap.set('n', '<leader>s', function ()
+  if scratchopen == false then
+    scratchbuf, scratchwindow = makenewwindow(
+      0.8,      -- Width ratio
+      0.8,      -- Height ratio
+      true,     -- It's true that it's a "scratch" buffer
+      'scratch' -- Bogus placeholder filename for scratch buffer
+    )
+    scratchopen = true
+  else
+    closenewwindow(scratchwindow, false)
+    scratchopen = false
+  end
+end)
+
+-- Codeblock fencing -- should this be in another file?
 vim.g.markdown_fenced_languages = {
   'awk', 'lua', 'perl', 'html',
   'sh', 'bash', 'bib',
 }
--- }}}
 
--- Requirements {{{
+-- Requirements -- obviously these go somewhere else
 require('cipher')
-require('notepad')
-require('todo')
 require('floatwin')
--- }}}
 
--- Default options {{{
-local options = vim.o
+-- Default options
+-- I like the idea of keeping these in the init.lua
+-- Is there a way to make them more "literate"? I don't care
+-- about overspecifying them -- this is the most boring part.
+-- What will matter is indicating which ones are relevant for
+-- editing writing.
+local options           = vim.o   -- Kind of distracting
 
+-- I think these two encoding lines need to run every time a new
+-- file opens? And `encoding` isn't the right option anyhow, lol.
+-- Do `:h fileencoding`
 options.encoding        = 'utf-8'
 options.fileformat      = 'unix'
+
 options.linebreak       = true
 options.textwidth       = 65
 options.autoindent      = true
@@ -33,60 +96,15 @@ options.foldmethod      = 'marker'
 options.expandtab       = true
 options.tabstop         = 4
 options.shiftwidth      = 4
-options.guifont = "Courier:h16"
+options.guifont         = "Courier:h16"
 options.shell           = '/usr/bin/fish'
 options.dictionary      = '/usr/share/dict/american-english'
 options.makeprg         = 'gcc %'
--- }}}
 
--- Display settings {{{
-local basic = {
-  foreground  = 'black',
-  background  = '#eeeeee',
-  ctermfg     = 'grey',
-  ctermbg     = 'black'
-}
+require('highlight')
+require('status')
 
-vim.api.nvim_set_hl(0, 'Normal', basic)
-
-vim.api.nvim_set_hl(0, 'LineNr', basic)
-
-vim.api.nvim_set_hl(0, 'Pmenu', basic)
-
-vim.api.nvim_set_hl(0, 'FloatBorder', basic)
-
-vim.api.nvim_set_hl(0, 'Folded', {
-  foreground  = 'black',
-  background  = '#eeeeee',
-  ctermfg='black',
-  ctermbg='darkcyan'
-})
-
-vim.api.nvim_set_hl(0, 'FoldColumn', {
-  foreground  = 'black',
-  background  = '#eeeeee',
-  ctermfg='darkcyan',
-  ctermbg='black'
-})
-
-function setstatus()
-  local shrug = '¯\\_(ツ)_/¯'
-  local file = '%f'
-  local line = '%l'
-  local column = '%v'
-  return string.format(
-    '%-13s %.40s LINE:%3s/COL:%3s',
-    shrug,
-    file,
-    line,
-    column
-  )
-end
-
-vim.o.statusline = setstatus()
---}}}
-
--- Mappings and abbreviations {{{
+-- Mappings and abbreviations 
 -- Add blank line above current
 vim.keymap.set('n', '<leader>o', 'O<esc>D')
 -- Capitalize entire word
@@ -98,42 +116,6 @@ vim.keymap.set('n', '<left>',    '<C-w>h')
 vim.keymap.set('n', '<right>',   '<C-w>l')
 -- Open previous buffer in split
 vim.keymap.set('n', '<leader>p', '<cmd>rightbelow split #<cr>')
--- Clean up punctuation
-vim.keymap.set('n', '<leader>q', function()
-    require('cleanquotes')
-    quoteclean()
-end)
--- Open bibliography
-vim.keymap.set('n', '<leader>b', function()
-  if bibopen == false then
-    bibbuf, bibwindow = makenewwindow(0.8, 0.8, false, bibfile)
-    bibopen = true
-  else
-    closenewwindow(bibwindow, true)
-    bibopen = false
-  end
-  return 0
-end)
--- Open todo list
-vim.keymap.set('n', '<leader>t', function ()
-  if todoopen == false then
-    opentodo()
-    todoopen = true
-  else
-    closetodo()
-    todoopen = false
-  end
-end)
--- Open scratchpad
-vim.keymap.set('n', '<leader>s', function ()
-  if scratchopen == false then
-    scratchpad()
-    scratchopen = true
-  else
-    cscratchpad()
-    scratchopen = false
-  end
-end)
 -- Cipher buffer
 vim.keymap.set('n', '<leader>c', '<cmd>luado return encipher(line)<cr>')
 -- Better normal mode
@@ -142,61 +124,24 @@ vim.keymap.set('i', 'jk',        '<esc>')
 vim.keymap.set('i', '<M-c>',        '')
 -- I don't like capitalizing
 vim.cmd('cnorea myvimrc $MYVIMRC', false)
---}}}
 
--- Undo and swap directories {{{
-vim.cmd('set backupdir=~/.vim-temp//', false)
-vim.cmd('set directory=~/.vim-temp//', false)
-vim.cmd('set undodir=~/.vim-temp//', false)
--- }}}
+-- Experimental: pasting quotations
+vim.keymap.set('n', '<M-p>',    function()
+  require('strings')
+  clipb = vim.split(vim.fn.getreg('+'), '\n')
+  vim.api.nvim_set_current_line(joinstrings(clipb))
+end)
 
--- Filetype-specific settings {{{
-local wrapless = vim.api.nvim_create_augroup("wrapless", {
-    clear = false
-})
+-- Experimental: checking markdown boxes
+vim.keymap.set('n', '<leader>d',  function()
+  require('checkbox')
+  local checkline = vim.api.nvim_get_current_line()
+  vim.api.nvim_set_current_line(checkuncheck(checkline))
+end)
 
-local spreadsheets = vim.api.nvim_create_augroup("spreadsheets", {
-    clear = false
-})
+-- Undo and swap directories 
+vim.cmd('set backupdir=~/.vim-temp//')
+vim.cmd('set directory=~/.vim-temp//')
+vim.cmd('set undodir=~/.vim-temp//')
 
-vim.api.nvim_create_autocmd("FileType", {
-  command = "setlocal textwidth=0",
-  group   = wrapless,
-  once    = false,
-  pattern = {"html",
-             "awk",
-             "fish",
-}})
-
-vim.api.nvim_create_autocmd("BufEnter", {
-  command = "setlocal textwidth=0",
-  group   = spreadsheets,
-  once    = false,
-  pattern = {"*.tsv",
-             "*.csv",
-}})
-
-vim.api.nvim_create_autocmd("BufEnter", {
-  command = "setlocal noexpandtab",
-  group   = spreadsheets,
-  once    = false,
-  pattern = {"*.tsv",
-             "*.csv",
-}})
-
-vim.api.nvim_create_autocmd("FileType", {
-  command = "setlocal tabstop=2",
-  once    = false,
-  pattern = {"yaml",
-             "lua",
-             "html",
-}})
-
-vim.api.nvim_create_autocmd("FileType", {
-  command = "setlocal shiftwidth=2",
-  once    = false,
-  pattern = {"yaml",
-             "lua",
-             "html",
-}})
--- }}}
+require('filetypes')

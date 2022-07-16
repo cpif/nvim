@@ -1,3 +1,17 @@
+--[[
+
+> I was never embarrassed about asking someone, literally, "What
+> should I paint?" because how is asking someone for ideas any
+> different from looking for them in a magazine? 
+                                                    --Andy Warhol
+
+--]]
+
+require('filetypes')
+require('highlight')
+require('status')
+require('cipher')
+
 --[[ Floating Windows {{{
 
 The following section creates mappings for "floating windows" --
@@ -70,7 +84,22 @@ mapfloatingwindow(scratchpad)
 
 --}}}
 
--- Delete unwanted copy-paste artifacts
+--[[
+The following mapping allows you to paste a quotation with <M-p>.
+I use it with PDFs -- typically a pasted quotation will retain
+line break where I don't want them. This joins all the lines,
+removing any hyphenated words that were wrapped across lines.
+]]
+vim.keymap.set('n', '<M-p>',    function()
+  require('strings')
+  clipb = vim.split(vim.fn.getreg('+'), '\n')
+  vim.api.nvim_set_current_line(joinstrings(clipb))
+end)
+
+--[[
+Deletes unwanted artifacts from copying and pasting, including
+"smart" quotes, m- and n-dashes, and (some) footnotes.
+]]
 vim.keymap.set('n', '<leader>q', function()
 	require('quoteclean')
 	quoteclean()
@@ -82,43 +111,21 @@ vim.g.markdown_fenced_languages = {
   'sh', 'bash', 'bib',
 }
 
--- Requirements -- obviously these go somewhere else
-require('cipher')
+vim.o.linebreak       = true
+vim.o.textwidth       = 65
+vim.o.autoindent      = true
+vim.o.rnu             = true
+vim.o.hlsearch        = false
+vim.o.foldlevelstart  = 0
+vim.o.foldmethod      = 'marker'
+vim.o.expandtab       = true
+vim.o.tabstop         = 4
+vim.o.shiftwidth      = 4
+vim.o.guifont         = "Courier:h16"
+vim.o.shell           = '/usr/bin/fish'
+vim.o.dictionary      = '/usr/share/dict/american-english'
+vim.o.makeprg         = 'gcc %'
 
--- Default options
--- I like the idea of keeping these in the init.lua
--- Is there a way to make them more "literate"? I don't care
--- about overspecifying them -- this is the most boring part.
--- What will matter is indicating which ones are relevant for
--- editing writing.
-local options           = vim.o   -- Kind of distracting
-
--- I think these two encoding lines need to run every time a new
--- file opens? And `encoding` isn't the right option anyhow, lol.
--- Do `:h fileencoding`
-options.encoding        = 'utf-8'
-options.fileformat      = 'unix'
-
-options.linebreak       = true
-options.textwidth       = 65
-options.autoindent      = true
-options.number          = false
-options.rnu             = true
-options.hlsearch        = false
-options.foldlevelstart  = 0
-options.foldmethod      = 'marker'
-options.expandtab       = true
-options.tabstop         = 4
-options.shiftwidth      = 4
-options.guifont         = "Courier:h16"
-options.shell           = '/usr/bin/fish'
-options.dictionary      = '/usr/share/dict/american-english'
-options.makeprg         = 'gcc %'
-
-require('highlight')
-require('status')
-
--- Mappings and abbreviations 
 -- Add blank line above current
 vim.keymap.set('n', '<leader>o', 'O<esc>D')
 -- Capitalize entire word
@@ -139,14 +146,7 @@ vim.keymap.set('i', '<M-c>',        '')
 -- I don't like capitalizing
 vim.cmd('cnorea myvimrc $MYVIMRC', false)
 
--- Experimental: pasting quotations
-vim.keymap.set('n', '<M-p>',    function()
-  require('strings')
-  clipb = vim.split(vim.fn.getreg('+'), '\n')
-  vim.api.nvim_set_current_line(joinstrings(clipb))
-end)
-
--- Experimental: checking markdown boxes
+-- Check markdown boxes
 vim.keymap.set('n', '<leader>d',  function()
   require('checkbox')
   local checkline = vim.api.nvim_get_current_line()
@@ -157,5 +157,3 @@ end)
 vim.cmd('set backupdir=~/.vim-temp//')
 vim.cmd('set directory=~/.vim-temp//')
 vim.cmd('set undodir=~/.vim-temp//')
-
-require('filetypes')

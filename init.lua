@@ -128,8 +128,18 @@ vim.o.makeprg         = 'gcc %'
 
 -- Add blank line above current
 vim.keymap.set('n', '<leader>o', 'O<esc>D')
--- Capitalize entire word
+--[[
+This mapping capitalizes the entire word.
+
+It's not that hard to type `gUaw` or `gUiw` -- and most of the
+time I end up doing that anyway because I forgot I did this. But
+I read about how unnecessary the caps lock key is and believed
+it, so I got rid of it. Only problem is: OCCASIONALLY it's nice
+to type a word in all caps (like PDF), or a shell-style variable
+(like $MYVIMRC).
+]]
 vim.keymap.set('n', '<leader>u', 'gUaw')
+vim.cmd('cnorea myvimrc $MYVIMRC', false)
 -- Better moving between windows
 vim.keymap.set('n', '<up>',      '<C-w>k')
 vim.keymap.set('n', '<down>',    '<C-w>j')
@@ -143,8 +153,6 @@ vim.keymap.set('n', '<leader>c', '<cmd>luado return encipher(line)<cr>')
 vim.keymap.set('i', 'jk',        '<esc>')
 -- Cite
 vim.keymap.set('i', '<M-c>',        '')
--- I don't like capitalizing
-vim.cmd('cnorea myvimrc $MYVIMRC', false)
 
 -- Check markdown boxes
 vim.keymap.set('n', '<leader>d',  function()

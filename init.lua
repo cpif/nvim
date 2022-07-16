@@ -154,6 +154,6 @@ vim.keymap.set('n', '<leader>d',  function()
 end)
 
 -- Undo and swap directories 
-vim.cmd('set backupdir=~/.vim-temp//')
-vim.cmd('set directory=~/.vim-temp//')
-vim.cmd('set undodir=~/.vim-temp//')
+vim.o.backupdir = '~/.vim-temp//'
+vim.o.directory = '~/.vim-temp//'
+vim.o.undodir   = '~/.vim-temp//'

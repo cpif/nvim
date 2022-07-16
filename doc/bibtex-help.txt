@@ -270,5 +270,17 @@ like this:
 >
     title = "Stupidity and Morality in \textit{{W}alden}"
 <
+CROSS-REFERENCES                                  *bibtex-crossref* 
+
+To cite multiple sections from the same book, use the following,
+where "companion" is the citekey for the container book:
+>
+    @incollection{companion-bib,
+        crossref    = "companion",
+        author      = "So-and-so",
+        title       = "Chapter Title",
+        pages       = "371-420",
+    }
+>
 
 vim:ft=help:tw=65

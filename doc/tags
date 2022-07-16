@@ -1,6 +1,7 @@
 bibtex-article	bibtex-help.txt	/*bibtex-article*
 bibtex-book	bibtex-help.txt	/*bibtex-book*
 bibtex-booklet	bibtex-help.txt	/*bibtex-booklet*
+bibtex-crossref	bibtex-help.txt	/*bibtex-crossref*
 bibtex-entries	bibtex-help.txt	/*bibtex-entries*
 bibtex-format	bibtex-help.txt	/*bibtex-format*
 bibtex-help.txt	bibtex-help.txt	/*bibtex-help.txt*

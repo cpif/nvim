@@ -153,7 +153,8 @@ vim.keymap.set('n', '<leader>d',  function()
   vim.api.nvim_set_current_line(checkuncheck(checkline))
 end)
 
--- Undo and swap directories 
-vim.o.backupdir = '~/.vim-temp//'
-vim.o.directory = '~/.vim-temp//'
-vim.o.undodir   = '~/.vim-temp//'
+-- Hide those pesky swapfiles
+local backups   = '~/.vim-temp//'
+vim.o.backupdir = backups
+vim.o.directory = backups
+vim.o.undodir   = backups

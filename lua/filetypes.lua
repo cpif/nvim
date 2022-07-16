@@ -7,6 +7,12 @@ TODO: find out if there's a less stupid way.
 
 ]]
 
+--[[
+
+As expected ... this did break something.
+
+TODO: delete or repair.
+
 local everything = vim.api.nvim_create_augroup("general", {
   clear = true,
 })
@@ -20,6 +26,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
     vim.bo.fileformat   = 'unix'
   end,
 })
+==]]
 
 local wrapless = vim.api.nvim_create_augroup("wrapless", {
     clear = true

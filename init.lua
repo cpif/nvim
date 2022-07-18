@@ -125,7 +125,9 @@ vim.o.shiftwidth      = 4
 vim.o.guifont         = "Courier:h16"
 vim.o.dictionary      = '/usr/share/dict/american-english'
 vim.o.equalprg        = 'pandoc'
-vim.o.makeprg         = 'pandoc --defaults ' .. vim.fn.expand('~/.defaults.yml')
+
+local docout          = ' -o ' .. vim.fn.expand('~') .. '/(basename % .md).docx'
+vim.o.makeprg         = 'pandoc % --defaults ' .. vim.fn.expand('~/.panfiles/defaults.yml') .. docout
 
 -- Add blank line above current
 vim.keymap.set('n', '<leader>o', 'O<esc>D')

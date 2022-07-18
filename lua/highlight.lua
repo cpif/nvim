@@ -38,7 +38,7 @@ sethi(fold)
 -- Comment        {{{
 local Comment     = {
   specs           = {
-    default       = true,
+    ctermfg       = 'Cyan',
     foreground    = '#6070a0',
   },
   categories      = {
@@ -51,7 +51,7 @@ sethi(Comment)
 -- Special        {{{
 local Special     = {
   specs           = {
-    default       = true,
+    ctermfg       = 'LightRed',
     foreground    = '#bb00bb',
   },
   categories      = {
@@ -64,7 +64,7 @@ sethi(Special)
 -- Type           {{{
 local Type        = {
   specs           = {
-    default       = true,
+    ctermfg       = 'LightGreen',
     foreground    = '#30c030',
 		bold      	  = true,
   },
@@ -78,7 +78,7 @@ sethi(Type)
 -- Statement      {{{
 local Statement   = {
   specs           = {
-    default       = true,
+    ctermfg       = 'Yellow',
     foreground    = '#aaaa40',
 		bold      	  = true,
   },
@@ -92,8 +92,11 @@ sethi(Statement)
 -- Identifier     {{{
 local Identifier  = {
   specs           = {
-    default       = true,
+    ctermfg       = 'Cyan',
     foreground    = '#30b0c0',
+    cterm         = {
+      bold        = true,
+    },
   },
   categories      = {
     'Identifier',
@@ -105,7 +108,7 @@ sethi(Identifier)
 -- Constant       {{{
 local Constant    = {
   specs           = {
-    default       = true,
+    ctermfg       = 'Magenta',
     foreground    = '#b02020',
   },
   categories      = {
@@ -115,3 +118,15 @@ local Constant    = {
 sethi(Constant)
 -- }}}
 
+-- PreProc        {{{
+local PreProc     = {
+  specs           = {
+    ctermfg       = 'LightBlue',
+    foreground    = '#60b060',
+  },
+  categories      = {
+    'PreProc',
+  }
+}
+sethi(PreProc)
+-- }}}

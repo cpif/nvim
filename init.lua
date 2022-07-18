@@ -131,7 +131,7 @@ vim.o.makeprg         = 'pandoc % --defaults ' .. vim.fn.expand('~/.panfiles/def
 vim.o.shell           = '/usr/bin/fish'
 
 -- Add blank line above current
-vim.keymap.set('n', '<leader>o', 'O<esc>D')
+vim.keymap.set('n', '<leader>o', 'O<esc>0D')
 --[[
 This mapping capitalizes the entire word.
 

@@ -128,6 +128,7 @@ vim.o.equalprg        = 'pandoc'
 
 local docout          = ' -o ' .. vim.fn.expand('~') .. '/(basename % .md).docx'
 vim.o.makeprg         = 'pandoc % --defaults ' .. vim.fn.expand('~/.panfiles/defaults.yml') .. docout
+vim.o.shell           = '/usr/bin/fish'
 
 -- Add blank line above current
 vim.keymap.set('n', '<leader>o', 'O<esc>D')

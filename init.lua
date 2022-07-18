@@ -126,7 +126,7 @@ vim.o.guifont         = "Courier:h16"
 vim.o.dictionary      = '/usr/share/dict/american-english'
 vim.o.equalprg        = 'pandoc'
 
-local docout          = ' -o ' .. vim.fn.expand('~') .. '/(basename % .md).docx'
+local docout          = ' -o (basename % .md).docx'
 vim.o.makeprg         = 'pandoc % --defaults ' .. vim.fn.expand('~/.panfiles/defaults.yml') .. docout
 vim.o.shell           = '/usr/bin/fish'
 

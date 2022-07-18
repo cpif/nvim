@@ -11,6 +11,7 @@ require('filetypes')
 require('highlight')
 require('status')
 require('cipher')
+require('startdir')
 
 --[[ Floating Windows {{{
 

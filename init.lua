@@ -12,6 +12,7 @@ require('highlight')
 require('status')
 require('cipher')
 require('startdir')
+require('cmdsub')
 
 --[[ Floating Windows {{{
 
@@ -126,9 +127,8 @@ vim.o.guifont         = "Courier:h16"
 vim.o.dictionary      = '/usr/share/dict/american-english'
 vim.o.equalprg        = 'pandoc'
 
-local docout          = ' -o (basename % .md).docx'
-vim.o.makeprg         = 'pandoc % --defaults ' .. vim.fn.expand('~/.panfiles/defaults.yml') .. docout
-vim.o.shell           = '/usr/bin/fish'
+local docout          = ' -o ' .. lcmdsub .. 'basename % .md' .. rcmdsub .. '.docx'
+vim.o.makeprg         = 'pandoc % -dbasic ' .. docout
 
 -- Add blank line above current
 vim.keymap.set('n', '<leader>o', 'O<esc>0D')

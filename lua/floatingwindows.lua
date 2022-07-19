@@ -1,10 +1,7 @@
 function mapfloatingwindow(table)
   vim.keymap.set('n', '<leader>' .. table.leader, function()
-    if table.open == false then
-      makefloatingwindow(table)
-    else
-      closefloatingwindow(table)
-    end
+    if table.open == false then makefloatingwindow(table)
+    else closefloatingwindow(table) end
   end)
 end
 

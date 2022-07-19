@@ -39,7 +39,7 @@ sethi(fold)
 local Comment     = {
   specs           = {
     ctermfg       = 'Cyan',
-    foreground    = '#6070a0',
+    foreground    = 'Black',
   },
   categories      = {
     'Comment',  

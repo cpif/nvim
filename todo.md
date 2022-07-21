@@ -33,4 +33,11 @@
 - [x] You could make a *subtable* in the floating windows data
   structure! And iterate over it, setting buffer-local options in
   the function that makes the window. **kaboom**.
-
+- [ ] It's possible that it would be better to declare a buffer
+  number for each floating-point window -- though I don't think
+  it matters that you're creating new buffers every time you open
+  one during an editing session, it's also not a particularly
+  clean way of doing business. And I don't think it'd hurt
+  anything to reserve a certain buffer number per three unique
+  files -- so long as they are in the buf list and won't be
+  otherwise employed.

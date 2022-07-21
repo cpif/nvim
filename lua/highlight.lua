@@ -11,7 +11,7 @@ local normal	    = {
     foreground    = 'black',
     background    = '#eeeeee',
     ctermfg       = 'grey',
-    ctermbg       = 'black'
+    ctermbg       = 'NONE'
   },
   categories      = {
     'Normal', 'LineNr', 'Pmenu', 'FloatBorder',

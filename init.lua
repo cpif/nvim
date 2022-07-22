@@ -156,7 +156,7 @@ vim.keymap.set('n', '<leader>c', '<cmd>luado return encipher(line)<cr>')
 -- Better normal mode
 vim.keymap.set('i', 'jk',        '<esc>')
 -- Cite
-vim.keymap.set('i', '<M-c>',        '')
+vim.keymap.set('i', '<leader>c', '')
 
 -- Check markdown boxes
 vim.keymap.set('n', '<leader>d',  function()

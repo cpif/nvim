@@ -55,3 +55,11 @@ vim.api.nvim_create_autocmd("FileType", {
              "lua",
              "html",
 }})
+
+-- autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
+
+vim.api.nvim_create_autocmd("FileType", {
+  command = "set omnifunc=htmlcomplete#CompleteTags",
+  once    = false,
+  pattern = {"html",}
+})

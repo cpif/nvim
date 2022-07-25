@@ -12,6 +12,7 @@ require('highlight')
 require('status')
 require('cipher')
 require('startdir')
+require('lines')
 
 --[[ Floating Windows {{{
 
@@ -162,7 +163,8 @@ vim.keymap.set('n', '<right>',   '<C-w>l')
 vim.keymap.set('n', '<leader>p', '<cmd>rightbelow split #<cr>')
 
 -- Cipher buffer
-vim.keymap.set('n', '<leader>c', '<cmd>luado return encipher(line)<cr>')
+vim.keymap.set('n', '<leader>c', function() 
+  processtext(encipher) end)
 
 -- Better normal mode -- thanks Steve
 vim.keymap.set('i', 'jk',        '<esc>')

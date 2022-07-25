@@ -41,7 +41,7 @@ require('floatingwindows')
 
 -- The following table contains everything you need to make a
 -- floating window.
-bibliography  = {
+mapfloatingwindow({
   file        = '~/Bibliography/bibliography.bib',
   open        = false,        -- The float is not open... yet
   leader      = 'b',          -- Press <leader> then "b" to open float
@@ -51,10 +51,9 @@ bibliography  = {
   window      = 0,            -- Buffer window (initialized to zero)
   write       = true,         -- Should the buffer be written?
   options     = {}            -- Table of buffer-local options
-}
-mapfloatingwindow(bibliography)
+})
 
-todolist      = {
+mapfloatingwindow({
   file        = '~/.todo.md',
   open        = false,
   leader      = 't',
@@ -66,10 +65,9 @@ todolist      = {
   options     = {
     textwidth = 0,
   }
-}
-mapfloatingwindow(todolist)
+})
 
-scratchpad    = {
+mapfloatingwindow({
   file        = 'scratch',
   open        = false,
   leader      = 's',
@@ -81,8 +79,7 @@ scratchpad    = {
   options     = {
     textwidth = 0,
   }
-}
-mapfloatingwindow(scratchpad)
+})
 
 --}}}
 

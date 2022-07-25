@@ -12,7 +12,6 @@ require('highlight')
 require('status')
 require('cipher')
 require('startdir')
-require('cmdsub')
 
 --[[ Floating Windows {{{
 
@@ -104,7 +103,7 @@ vim.keymap.set('n', '<leader>q', function()
 	quoteclean()
 end)
 
--- Codeblock fencing -- should this be in another file?
+-- Syntax highlighting in markdown fenced blocks
 vim.g.markdown_fenced_languages = {
   'awk', 'lua', 'perl', 'html',
   'sh', 'bash', 'bib',
@@ -124,11 +123,22 @@ vim.o.guifont         = "Courier:h16"
 vim.o.dictionary      = '/usr/share/dict/american-english'
 vim.o.equalprg        = 'pandoc'
 
+--[[
+I use John MacFarlane's wonderful pandoc to convert markdown to
+Word documents. Here I set it up as my `makeprg`.
+
+I love the fish shell, but it works like shit on WSL so I use
+bash. The `cmdsub` external decides which shell I'm using and
+picks the syntax for command substitutions (the fish shell uses
+parentheses instead of bash's backticks).
+]]
+require('cmdsub')
 local docout          = ' -o ' .. lcmdsub .. 'basename % .md' .. rcmdsub .. '.docx'
 vim.o.makeprg         = 'pandoc % -dbasic ' .. docout
 
--- Add blank line above current
+-- Add blank line above current line
 vim.keymap.set('n', '<leader>o', 'O<esc>0D')
+
 --[[
 This mapping capitalizes the entire word.
 
@@ -141,18 +151,23 @@ to type a word in all caps (like PDF), or a shell-style variable
 ]]
 vim.keymap.set('n', '<leader>u', 'gUaw')
 vim.cmd('cnorea myvimrc $MYVIMRC', false)
+
 -- Better moving between windows
 vim.keymap.set('n', '<up>',      '<C-w>k')
 vim.keymap.set('n', '<down>',    '<C-w>j')
 vim.keymap.set('n', '<left>',    '<C-w>h')
 vim.keymap.set('n', '<right>',   '<C-w>l')
+
 -- Open previous buffer in split
 vim.keymap.set('n', '<leader>p', '<cmd>rightbelow split #<cr>')
+
 -- Cipher buffer
 vim.keymap.set('n', '<leader>c', '<cmd>luado return encipher(line)<cr>')
--- Better normal mode
+
+-- Better normal mode -- thanks Steve
 vim.keymap.set('i', 'jk',        '<esc>')
--- Cite
+
+-- Cite a source from a tag file
 vim.keymap.set('i', '<leader>c', '')
 
 -- Check markdown boxes

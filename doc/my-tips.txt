@@ -35,4 +35,13 @@ WORD        COLOR           ~
 #C0FFEE     Light teal
 #D00D00     Cherry
 
+=================================================================
+USE CTRL-A WITH LETTERS                            *ctrl-a-letters*
+
+To add alphabet characters programatically with |CTRL-A|, you need 
+to set |'nrformats'|. Example:
+>
+    :set nrformats+=alpha
+<
+
 vim:tw=65:ts=4:ft=help

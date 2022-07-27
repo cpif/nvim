@@ -6,47 +6,70 @@ Note from vim.keymap.set helpfile:
         for |:map|.
 ]]
 
-function colemakmap(colemakkeytable)
-  for i, map in ipairs(colemakkeytable) do
+function keymap(keytable)
+  for i, map in ipairs(keytable.commands) do
     vim.keymap.set('', map.colemak, map.qwerty)
+  end
+  for i, map in ipairs(keytable.operators) do
+    vim.keymap.set('o', map.colemak, map.qwerty)
   end
 end
 
 colemakkeytable = {
-  -- Lowercase, normal mode
-  { qwerty = 'd', colemak = 's' },
-  { qwerty = 'e', colemak = 'f' },
-  { qwerty = 'f', colemak = 't' },
-  { qwerty = 'g', colemak = 'd' },
-  { qwerty = 'i', colemak = 'u' },
-  { qwerty = 'j', colemak = 'n' },
-  { qwerty = 'k', colemak = 'e' },
-  { qwerty = 'l', colemak = 'i' },
-  { qwerty = 'n', colemak = 'k' },
-  { qwerty = 'o', colemak = 'y' },
-  { qwerty = 'p', colemak = ';' },
-  { qwerty = 'r', colemak = 'p' },
-  { qwerty = 's', colemak = 'r' },
-  { qwerty = 't', colemak = 'g' },
-  { qwerty = 'u', colemak = 'l' },
-  { qwerty = 'y', colemak = 'j' },
-  { qwerty = ';', colemak = 'o' },
-  -- Uppercase, normal mode
-  { qwerty = 'D', colemak = 'S' },
-  { qwerty = 'E', colemak = 'F' },
-  { qwerty = 'F', colemak = 'T' },
-  { qwerty = 'G', colemak = 'D' },
-  { qwerty = 'I', colemak = 'U' },
-  { qwerty = 'J', colemak = 'N' },
-  { qwerty = 'K', colemak = 'E' },
-  { qwerty = 'L', colemak = 'I' },
-  { qwerty = 'N', colemak = 'K' },
-  { qwerty = 'O', colemak = 'Y' },
-  { qwerty = 'P', colemak = ';' },
-  { qwerty = 'R', colemak = 'P' },
-  { qwerty = 'S', colemak = 'R' },
-  { qwerty = 'T', colemak = 'G' },
-  { qwerty = 'U', colemak = 'L' },
-  { qwerty = 'Y', colemak = 'J' },
-  { qwerty = ';', colemak = 'O' },
+  commands = {
+    { qwerty = ':', colemak = 'O' },
+    { qwerty = ';', colemak = 'o' },
+    { qwerty = 'D', colemak = 'S' },
+    { qwerty = 'd', colemak = 's' },
+    { qwerty = 'E', colemak = 'F' },
+    { qwerty = 'e', colemak = 'f' },
+    { qwerty = 'F', colemak = 'T' },
+    { qwerty = 'f', colemak = 't' },
+    { qwerty = 'G', colemak = 'D' },
+    { qwerty = 'g', colemak = 'd' },
+    { qwerty = 'I', colemak = 'U' },
+    { qwerty = 'i', colemak = 'u' },
+    { qwerty = 'J', colemak = 'N' },
+    { qwerty = 'j', colemak = 'n' },
+    { qwerty = 'K', colemak = 'E' },
+    { qwerty = 'k', colemak = 'e' },
+    { qwerty = 'L', colemak = 'I' },
+    { qwerty = 'l', colemak = 'i' },
+    { qwerty = 'N', colemak = 'K' },
+    { qwerty = 'n', colemak = 'k' },
+    { qwerty = 'O', colemak = 'Y' },
+    { qwerty = 'o', colemak = 'y' },
+    { qwerty = 'P', colemak = ':' },
+    { qwerty = 'p', colemak = ';' },
+    { qwerty = 'R', colemak = 'P' },
+    { qwerty = 'r', colemak = 'p' },
+    { qwerty = 'S', colemak = 'R' },
+    { qwerty = 's', colemak = 'r' },
+    { qwerty = 'T', colemak = 'G' },
+    { qwerty = 't', colemak = 'g' },
+    { qwerty = 'U', colemak = 'L' },
+    { qwerty = 'u', colemak = 'l' },
+    { qwerty = 'Y', colemak = 'J' },
+    { qwerty = 'y', colemak = 'j' },
+  },
+  operators = {
+    { qwerty = 'i"', colemak = 'u"' },
+    { qwerty = 'i(', colemak = 'u(' },
+    { qwerty = 'i)', colemak = 'u)' },
+    { qwerty = 'i<', colemak = 'u<' },
+    { qwerty = 'i>', colemak = 'u>' },
+    { qwerty = 'iB', colemak = 'uB' },
+    { qwerty = 'ib', colemak = 'ub' },
+    { qwerty = 'ip', colemak = 'u;' },
+    { qwerty = 'is', colemak = 'ur' },
+    { qwerty = 'it', colemak = 'ug' },
+    { qwerty = 'iW', colemak = 'uW' },
+    { qwerty = 'iw', colemak = 'uw' },
+    { qwerty = 'i[', colemak = 'u[' },
+    { qwerty = 'i\'', colemak = 'u\'' },
+    { qwerty = 'i]', colemak = 'u]' },
+    { qwerty = 'i`', colemak = 'u`' },
+    { qwerty = 'i{', colemak = 'u{' },
+    { qwerty = 'i}', colemak = 'u}' },
+  },
 }

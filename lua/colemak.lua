@@ -53,6 +53,7 @@ colemakkeytable = {
     { qwerty = 'y', colemak = 'j' },
   },
   operators = {
+    -- in operators
     { qwerty = 'i"', colemak = 'u"' },
     { qwerty = 'i(', colemak = 'u(' },
     { qwerty = 'i)', colemak = 'u)' },
@@ -66,10 +67,14 @@ colemakkeytable = {
     { qwerty = 'iW', colemak = 'uW' },
     { qwerty = 'iw', colemak = 'uw' },
     { qwerty = 'i[', colemak = 'u[' },
-    { qwerty = 'i\'', colemak = 'u\'' },
     { qwerty = 'i]', colemak = 'u]' },
     { qwerty = 'i`', colemak = 'u`' },
     { qwerty = 'i{', colemak = 'u{' },
     { qwerty = 'i}', colemak = 'u}' },
+    { qwerty = 'i\'', colemak = 'u\'' },
+    -- all operators
+    { qwerty = 'ap', colemak = 'a;' },
+    { qwerty = 'as', colemak = 'ar' },
+    { qwerty = 'at', colemak = 'ag' },
   },
 }

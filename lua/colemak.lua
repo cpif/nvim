@@ -11,7 +11,7 @@ function keymap(keytable)
     vim.keymap.set('', map.new, map.qwerty)
   end
 
-  for i, map in ipairs(keytable.textobjects.objects) do
+  for i, map in ipairs(keytable.textobjects) do
     vim.keymap.set('o', 
       keytable.selectin .. map.new, 
       'i' .. map.qwerty

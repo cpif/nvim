@@ -123,6 +123,7 @@ vim.o.shiftwidth      = 4
 vim.o.guifont         = "Courier:h16"
 vim.o.dictionary      = '/usr/share/dict/american-english'
 vim.o.equalprg        = 'pandoc'
+vim.o.tags = vim.fn.expand('~/Bibliography/') .. 'tags'
 
 --[[
 I use John MacFarlane's wonderful pandoc to convert markdown to

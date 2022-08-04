@@ -170,8 +170,8 @@ vim.keymap.set('n', '<leader>c', function()
 -- Better normal mode -- thanks Steve
 vim.keymap.set('i', 'jk',        '<esc>')
 
--- Cite a source from a tag file
-vim.keymap.set('i', '<leader>c', '')
+-- Cite sources
+vim.keymap.set('i', 'cx', '')
 
 -- Check markdown boxes
 vim.keymap.set('n', '<leader>d',  function()

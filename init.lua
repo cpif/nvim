@@ -13,6 +13,7 @@ require('status')
 require('cipher')
 require('startdir')
 require('lines')
+require('netrw')
 
 --[[ Floating Windows {{{
 
@@ -93,6 +94,10 @@ vim.keymap.set('n', '<M-p>',    function()
   require('strings')
   clipb = vim.split(vim.fn.getreg('+'), '\n')
   vim.api.nvim_set_current_line(joinstrings(clipb))
+end)
+
+vim.keymap.set('n', '<leader>f', function()
+  vim.cmd('Vexplore')
 end)
 
 --[[

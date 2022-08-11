@@ -14,6 +14,7 @@ require('cipher')
 require('startdir')
 require('lines')
 require('netrw')
+require('swapfiles')
 
 --[[ Floating Windows {{{
 
@@ -173,10 +174,10 @@ vim.keymap.set('n', '<leader>c', function()
   processtext(encipher) end)
 
 -- Better normal mode -- thanks Steve
-vim.keymap.set('i', 'jk',        '<esc>')
+-- vim.keymap.set('i', 'jk',        '<esc>')
 
 -- Cite sources
-vim.keymap.set('i', 'cx', '')
+vim.keymap.set('i', '<F2>', '')
 
 -- Check markdown boxes
 vim.keymap.set('n', '<leader>d',  function()
@@ -184,9 +185,3 @@ vim.keymap.set('n', '<leader>d',  function()
   local checkline = vim.api.nvim_get_current_line()
   vim.api.nvim_set_current_line(checkuncheck(checkline))
 end)
-
--- Hide those pesky swapfiles
-local backups   = vim.fn.expand('~/.vim-temp//')
-vim.o.backupdir = backups
-vim.o.directory = backups
-vim.o.undodir   = backups

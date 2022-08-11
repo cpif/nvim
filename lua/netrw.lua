@@ -1,3 +1,17 @@
+local netrwwin
+local filebrowseropen = false
+
+vim.keymap.set('n', '<leader>f', function()
+  if filebrowseropen then
+    vim.api.nvim_win_close(netrwwin, false)
+    filebrowseropen = false
+  else
+    vim.cmd('Vexplore')
+    filebrowseropen = true
+    netrwwin = vim.api.nvim_get_current_win()
+  end
+end)
+
 vim.g.netrw_liststyle    = 3
 vim.g.netrw_banner       = 0
 vim.g.netrw_browse_split = 4

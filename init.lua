@@ -97,10 +97,6 @@ vim.keymap.set('n', '<M-p>',    function()
   vim.api.nvim_set_current_line(joinstrings(clipb))
 end)
 
-vim.keymap.set('n', '<leader>f', function()
-  vim.cmd('Vexplore')
-end)
-
 --[[
 Deletes unwanted artifacts from copying and pasting, including
 "smart" quotes, m- and n-dashes, and (some) footnotes.

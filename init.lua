@@ -129,7 +129,6 @@ vim.o.shiftwidth      = 4
 vim.o.guifont         = "Courier:h16"
 vim.o.dictionary      = '/usr/share/dict/american-english'
 vim.o.equalprg        = 'pandoc'
-vim.o.tags            = vim.fn.expand('~/Bibliography/') .. 'tags'
 
 --[[
 I use John MacFarlane's wonderful pandoc to convert markdown to
@@ -175,9 +174,6 @@ vim.keymap.set('n', '<leader>c', function()
 
 -- Better normal mode -- thanks Steve
 -- vim.keymap.set('i', 'jk',        '<esc>')
-
--- Cite sources
-vim.keymap.set('i', '<F2>', '')
 
 -- Check markdown boxes
 vim.keymap.set('n', '<leader>d',  function()

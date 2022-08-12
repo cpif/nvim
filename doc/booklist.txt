@@ -96,4 +96,120 @@ THE ORALS LISTS                                        *booklist*
      Freedom_ (1860).
 -    Zora Neal Hurston, _Their Eyes Were Watching God_ (1937)
 
+=================================================================
+NINETEENTH-CENTURY AMERICAN LITERATURE              *booklist-19th*
+
+The purpose of this list is to establish a more thorough
+understanding of American literature of the nineteenth century,
+with particular emphasis on how the texts on the list anticipate
+philosophical and psychological questions that preoccupy later
+thinkers and that continue to be posed today. Of particular
+interest to me is the fact that twentieth-century critics return
+to these texts because they detect a sense of urgency in the way
+they pose their questions; they see them as "equipment for
+living," as Kenneth Burke writes. Literary writing directed its
+attention to the fabricatedness of what one can know about truth,
+one's others, and one's self, yet urged these doubts, not as
+crippling, but as orienting in relation to the world.
+
+-   Benjamin Franklin, The Autobiography (1793).
+-   Charles Brockden Brown, Arthur Mervyn (1799).
+-   Washington Irving, A History of New York (1809).
+-   Margaret Fuller, Woman in the Nineteenth Century (1834).
+-   Ralph Waldo Emerson, Nature (1836), selected essays.
+-   Maria Monk, Awful Disclosures (1836).
+-   Susan Warner, Wide, Wide world (1845).
+-   George Lippard, The Quaker City (1845).
+-   Frederick Douglass, Narrative of the Life of Frederick
+    Douglass (1845).
+-   Henry Box Brown, The Narrative of Henry Box Brown (1849).
+-   Nathaniel Hawthorne, The House of the Seven Gables (1851).
+-   ---, The Blithedale Romance (1852).
+-   Herman Melville, Pierre (1852).
+-   Harriet Beecher Stowe, Uncle Tom's Cabin (1852).
+-   William Wells Brown, Clotel (1853).
+-   Henry David Thoreau, Walden (1854).
+-   Fanny Fern, Ruth Hall (1855).
+-   Walt Whitman, Leaves of Grass (1855).
+-   Herman Melville, The Confidence Man (1857).
+-   ---, Benito Cereno (1861).
+-   Emily Dickinson, selections.
+-   Edgar Allan Poe, selections.
+
+-   Ludwig Wittgenstein, Philosophical Investigations.
+-   Stanley Cavell, This New Yet Unapproachable America: Lectures
+    after Emerson and Wittgenstein.
+-   Geoffrey Sanborn, Plagiarama! William Wells Brown and the
+    Aesthetic of Attractions.
+-   Paul Hurh, American Terror
+
+=================================================================
+AMERICAN MODERNISM                             *booklist-modernism*
+
+The rationale for this list is twofold. First, it covers an array
+of significant modernist texts, extending my field expertise
+beyond the nineteenth century into the early twentieth. Second,
+it affords the opportunity to explore linkages between how these
+texts work and contemporaneous developments in American
+philosophical thinking, which I understand to be anticipated by
+developments in the fiction of the nineteenth century.
+
+-   Henry James, The Sacred Fount (1901)
+-   Edith Wharton, Ethan Frome
+-   Nella Larsen, Passing (1929)
+-   Djuna Barnes, Nightwood (1936)
+-   Zora Neal Hurston, Their Eyes Were Watching God (1937)
+-   Gertrude Stein, Lectures in America (1912)
+-   H.D., Sea Garden (1916)
+-   Louise Bogan, Body of This Death (1923)
+-   Jean Toomer, Cane (1923)
+-   William Carlos Williams, Spring and All (1923)
+-   Marianne Moore, Observations (1924)
+-   Ezra Pound, A Draft of XXX Cantos (1930)
+-   Sterling Brown, Southern Road (1932)
+-   John Dewey, How We Think (1910)
+-   William James, Pragmatism
+-   Charles Sanders Peirce, Chance, Love, and Logic (1923)
+-   W.V.O. Quine, "Two Dogmas of Empiricism" (1951)
+-   Wilfrid Sellars, Empiricism and the Philosophy of Mind (1956)
+-   Lisi Schoenbach, Pragmatic Modernism (2011)
+-   Omri Moses, Out of Character: Modernism, Vitalism, Psychic
+    Life (2014)
+-   Meghan Marie Hammond, Empathy and the Psychology of Literary
+    Modernism (2015)
+-   Selections from David Evans (ed.), Understanding James,
+    Understanding Modernism (2017)
+
+=================================================================
+BOOKS I THINK I REMEMBER                      *booklist-remembered*
+
+- Benjamin Franklin, _Autobiography_
+- Charles Brockden Brown, _Wieland_ and _Arthur Mervyn_
+- Charles Chesnutt, conjuring tales and _The Marrow of Tradition_
+- Edgar Allan Poe, selected tales
+- Edith Wharton, _Ethan Frome_
+- Ezra Pound, "A Retrospect," "How to Read"
+- Fanny Fern, _Ruth Hall_
+- Frank Norris, _McTeague_
+- Henry James, _What Maisie Knew_ and _The Sacred Fount_
+- Herman Melville, _Confidence-Man_ and _Moby-Dick_ and _Pierre_
+- James Weldon Johnson, _The Autobiography of an Ex-Colored Man_
+- J.L. Austin, _How to Do Things with Words_
+- Ludwig Wittgenstein, _Philosophical Investigations_
+- Maria Monk, _Awful Disclosures_
+- Nathaniel Hawthorne, _The Scarlet Letter_ and _The House of the
+  Seven Gables_
+- Nella Larsen, _Passing_
+- Ralph Waldo Emerson, _Nature_, "Self-Reliance"
+- Stanley Cavell, _Senses of Walden_
+- T.S. Eliot, "Hamlet," "Tradition and the Individual Talent"
+- W.E.B. Du Bois, _Soul of Black Folk_
+- William Carlos Williams, "The Poem as a Field of Action" and
+  _Spring and All_
+- William Dean Howells, _A Hazard of New Fortunes_
+- William & Ellen Craft, _Running a Thousand Miles for Freedom_
+- William James, _Psychology_ and _Pragmatism_
+- William Wells Brown, _Clotel_
+- Zora Neale Hurston, _Their Eyes were Watching God_
+
 vim:tw=65:ts=4:ft=help

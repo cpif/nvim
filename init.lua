@@ -15,6 +15,7 @@ require('startdir')
 require('lines')
 require('netrw')
 require('swapfiles')
+require('citations')
 
 --[[ Floating Windows {{{
 
@@ -170,6 +171,8 @@ vim.keymap.set('n', '<leader>c', function()
 
 -- Better normal mode -- thanks Steve
 -- vim.keymap.set('i', 'jk',        '<esc>')
+
+vim.keymap.set('i', '<F2>', '')
 
 -- Check markdown boxes
 vim.keymap.set('n', '<leader>d',  function()

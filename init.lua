@@ -5,15 +5,29 @@
                                                     --Andy Warhol
 --]]
 
+require('abbreviations')
+require('citations')
 require('filetypes')
 require('highlight')
-require('status')
-require('cipher')
-require('startdir')
 require('lines')
 require('netrw')
+require('startdir')
+require('status')
 require('swapfiles')
-require('citations')
+
+vim.o.linebreak       = true
+vim.o.textwidth       = 65
+vim.o.autoindent      = true
+vim.o.rnu             = true
+vim.o.hlsearch        = false
+vim.o.foldlevelstart  = 0
+vim.o.foldmethod      = 'marker'
+vim.o.expandtab       = true
+vim.o.tabstop         = 4
+vim.o.shiftwidth      = 4
+vim.o.guifont         = "Courier:h16"
+vim.o.dictionary      = '/usr/share/dict/american-english'
+vim.o.equalprg        = 'pandoc'
 
 --[[ Floating Windows {{{
 
@@ -84,80 +98,46 @@ mapfloatingwindow({
 
 --}}}
 
---[[
+--[[ Keymaps {{{
+
 The following mapping allows you to paste a quotation with <M-p>.
 I use it with PDFs -- typically a pasted quotation will retain
 line break where I don't want them. This joins all the lines,
-removing any hyphenated words that were wrapped across lines.
-]]
-vim.keymap.set('n', '<M-p>',    function()
+removing any hyphenated words that were wrapped across lines. ]]
+vim.keymap.set('n', '<M-p>', function()
   require('strings')
-  clipb = vim.split(vim.fn.getreg('+'), '\n')
+  local clipb = vim.split(vim.fn.getreg('+'), '\n')
   vim.api.nvim_set_current_line(joinstrings(clipb))
 end)
 
 --[[
 Deletes unwanted artifacts from copying and pasting, including
-"smart" quotes and m- and n-dashes.
-]]
+"smart" quotes and m- and n-dashes. ]]
 vim.keymap.set('n', '<leader>q', function()
 	require('strings')
 	quoteclean()
 end)
 
--- Syntax highlighting in markdown fenced blocks
-vim.g.markdown_fenced_languages = {
-  'awk', 'lua', 'perl', 'html',
-  'sh', 'bash', 'bib',
-}
-
-vim.o.linebreak       = true
-vim.o.textwidth       = 65
-vim.o.autoindent      = true
-vim.o.rnu             = true
-vim.o.hlsearch        = false
-vim.o.foldlevelstart  = 0
-vim.o.foldmethod      = 'marker'
-vim.o.expandtab       = true
-vim.o.tabstop         = 4
-vim.o.shiftwidth      = 4
-vim.o.guifont         = "Courier:h16"
-vim.o.dictionary      = '/usr/share/dict/american-english'
-vim.o.equalprg        = 'pandoc'
-
---[[
-I use John MacFarlane's wonderful pandoc to convert markdown to
-Word documents. Here I set it up as my `makeprg`.
-
-I love the fish shell, but it works like shit on WSL so I use
-bash. The `cmdsub` external decides which shell I'm using and
-picks the syntax for command substitutions (the fish shell uses
-parentheses instead of bash's backticks).
-]]
-require('cmdsub')
-local docout          = ' -o ' .. lcmdsub .. 'basename % .md' .. rcmdsub .. '.docx'
-vim.o.makeprg         = 'pandoc % -dbasic ' .. docout
-
 -- Add blank line above current line
 vim.keymap.set('n', '<leader>o', 'O<esc>0D')
 
--- No capitalizing
-vim.cmd('cnorea myvimrc $MYVIMRC', false)
-
 -- Better moving between windows
-vim.keymap.set('n', '<up>',      '<C-w>k')
-vim.keymap.set('n', '<down>',    '<C-w>j')
-vim.keymap.set('n', '<left>',    '<C-w>h')
-vim.keymap.set('n', '<right>',   '<C-w>l')
+vim.keymap.set('n', '<up>',    '<C-w>k')
+vim.keymap.set('n', '<down>',  '<C-w>j')
+vim.keymap.set('n', '<left>',  '<C-w>h')
+vim.keymap.set('n', '<right>', '<C-w>l')
 
 -- Cipher buffer
 vim.keymap.set('n', '<leader>c', function() 
-  processtext(encipher) end)
+  require('cipher')
+  processtext(encipher)
+end)
 
 -- Better normal mode -- thanks Steve
--- vim.keymap.set('i', 'jk',        '<esc>')
+-- vim.keymap.set('i', 'jk', '<esc>')
 -- (currently disabled for muscle-memory reasons)
 
+-- Tag completion
 vim.keymap.set('i', '<F2>', '')
 
 -- Check markdown boxes
@@ -166,3 +146,18 @@ vim.keymap.set('n', '<leader>d',  function()
   local checkline = vim.api.nvim_get_current_line()
   vim.api.nvim_set_current_line(checkuncheck(checkline))
 end)
+-- }}}
+
+--[[ Set makeprg to pandoc {{{
+I use John MacFarlane's wonderful pandoc to convert markdown to
+Word documents. Here I set it up as my `makeprg`.
+
+I love the fish shell, but it works like shit on WSL so I use
+bash. The `cmdsub` external decides which shell I'm using and
+picks the syntax for command substitutions (the fish shell uses
+parentheses instead of bash's backticks). ]]
+require('cmdsub')
+local docout  = ' -o ' .. lcmdsub .. 'basename % .md' .. rcmdsub
+  .. '.docx'
+vim.o.makeprg = 'pandoc % -dbasic ' .. docout
+-- }}}

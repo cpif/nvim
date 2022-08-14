@@ -143,17 +143,7 @@ vim.o.makeprg         = 'pandoc % -dbasic ' .. docout
 -- Add blank line above current line
 vim.keymap.set('n', '<leader>o', 'O<esc>0D')
 
---[[
-This mapping capitalizes the entire word.
-
-It's not that hard to type `gUaw` or `gUiw` -- and most of the
-time I end up doing that anyway because I forgot I did this. But
-I read about how unnecessary the caps lock key is and believed
-it, so I got rid of it. Only problem is: OCCASIONALLY it's nice
-to type a word in all caps (like PDF), or a shell-style variable
-(like $MYVIMRC).
-]]
-vim.keymap.set('n', '<leader>u', 'gUaw')
+-- No capitalizing
 vim.cmd('cnorea myvimrc $MYVIMRC', false)
 
 -- Better moving between windows

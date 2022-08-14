@@ -100,10 +100,10 @@ end)
 
 --[[
 Deletes unwanted artifacts from copying and pasting, including
-"smart" quotes, m- and n-dashes, and (some) footnotes.
+"smart" quotes and m- and n-dashes.
 ]]
 vim.keymap.set('n', '<leader>q', function()
-	require('quoteclean')
+	require('strings')
 	quoteclean()
 end)
 

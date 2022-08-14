@@ -34,3 +34,17 @@ function joinstrings(table)
   return joined
 end
 --}}}
+
+--[[ CLEANING UP QUOTATIONS {{{
+
+For copying/pasting, quote-cleaning, etc., this lua script
+removes all "smart" quotes, n-dashes, and m-dashes.
+
+]]
+
+function quoteclean()
+  vim.cmd('%s/‘\\|’/\'/ge')
+  vim.cmd('%s/“\\|”/"/ge')
+  vim.cmd('%s/ \\?\\(—\\|–\\) \\?/ -- /ge')
+end
+--}}}

@@ -5,6 +5,13 @@ function sethi(highlights)
   end
 end
 
+-- Syntax highlighting in markdown fenced blocks {{{
+vim.g.markdown_fenced_languages = {
+  'awk', 'lua', 'perl', 'html',
+  'sh', 'bash', 'bib',
+}
+-- }}}
+
 -- Normal         {{{
 local normal	    = {
   specs           = {

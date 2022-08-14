@@ -152,9 +152,6 @@ vim.keymap.set('n', '<down>',    '<C-w>j')
 vim.keymap.set('n', '<left>',    '<C-w>h')
 vim.keymap.set('n', '<right>',   '<C-w>l')
 
--- Open previous buffer in split
-vim.keymap.set('n', '<leader>p', '<cmd>rightbelow split #<cr>')
-
 -- Cipher buffer
 vim.keymap.set('n', '<leader>c', function() 
   processtext(encipher) end)

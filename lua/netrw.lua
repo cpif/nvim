@@ -1,7 +1,10 @@
+-- This sets up netrw to display tree-style, on the left side of
+-- the window. Mapped to F2.
+
 local netrwwin
 local filebrowseropen = false
 
-vim.keymap.set('n', '<leader>f', function()
+vim.keymap.set('n', '<f2>', function()
   if filebrowseropen then
     vim.api.nvim_win_close(netrwwin, false)
     filebrowseropen = false
@@ -18,7 +21,7 @@ vim.g.netrw_browse_split = 4
 vim.g.netrw_winsize      = 20
 
 vim.api.nvim_create_autocmd("FileType", {
-  callback  = function() vim.wo.statusline = 'FILES' end,
-  once    = false,
-  pattern = { 'netrw', },
+  callback = function() vim.wo.statusline = 'FILES' end,
+  once     = false,
+  pattern  = { 'netrw', },
 })

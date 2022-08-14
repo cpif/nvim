@@ -1,4 +1,4 @@
---[[ PREAMBLE {{{
+--[[ PREAMBLE                                 {{{
 
 These are small lua functions that work on strings. Some of them
 call each other at the moment. That may or may not be
@@ -21,7 +21,7 @@ function lasthyphen(str)
 end
 --}}}
 
---[[ JOINING A TABLE OF STRINGS {{{
+--[[ JOINING A TABLE OF STRINGS               {{{
 
 Like `gJ`, but implemented here, and with `lasthyphen` from
 above. ]]
@@ -35,7 +35,7 @@ function joinstrings(table)
 end
 --}}}
 
---[[ CLEANING UP QUOTATIONS {{{
+--[[ CLEANING UP QUOTATIONS                   {{{
 
 For copying/pasting, quote-cleaning, etc., this lua script
 removes all "smart" quotes, n-dashes, and m-dashes.

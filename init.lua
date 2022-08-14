@@ -158,6 +158,7 @@ vim.keymap.set('n', '<leader>c', function()
 
 -- Better normal mode -- thanks Steve
 -- vim.keymap.set('i', 'jk',        '<esc>')
+-- (currently disabled for muscle-memory reasons)
 
 vim.keymap.set('i', '<F2>', '')
 

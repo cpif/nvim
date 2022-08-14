@@ -1,10 +1,7 @@
 --[[
-
-Dumbest band-aid fix in the world. I work in WSL on my laptop and
-the fish shell is *so* slow there. But I use a few command
-substitutions in `init.lua`. This sets which symbol should
-indicate that a substitution is occurring.
-
+I use both fish and bash, and I have some command substitutions
+in my init.lua file. This picks which command substitution syntax
+to use for shell commands.
 --]]
 if vim.go.shell == '/usr/bin/fish' then
   lcmdsub = '('

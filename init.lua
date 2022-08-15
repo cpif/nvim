@@ -28,6 +28,8 @@ vim.o.shiftwidth      = 4
 vim.o.guifont         = "Courier:h16"
 vim.o.dictionary      = '/usr/share/dict/american-english'
 vim.o.equalprg        = 'pandoc'
+vim.o.ignorecase      = true
+vim.o.smartcase       = true
 
 --[[ Floating Windows {{{
 

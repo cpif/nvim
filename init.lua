@@ -2,11 +2,10 @@
 > I was never embarrassed about asking someone, literally, "What
 > should I paint?" because how is asking someone for ideas any
 > different from looking for them in a magazine? 
-                                                    --Andy Warhol
---]]
-
+                                                -- Andy Warhol ]]
 require('abbreviations')
 require('citations')
+require('cursor')
 require('filetypes')
 require('highlight')
 require('lines')
@@ -32,7 +31,7 @@ vim.o.equalprg        = 'pandoc'
 vim.o.ignorecase      = true
 vim.o.smartcase       = true
 
---[[ Floating Windows {{{
+--[[ Floating Windows                                         {{{
 
 The following section creates mappings for "floating windows" --
 which the nvim documentation says are "useful to implement simple
@@ -101,7 +100,7 @@ mapfloatingwindow({
 
 --}}}
 
---[[ Keymaps {{{
+--[[ Keymaps                                                  {{{
 
 The following mapping allows you to paste a quotation with <M-p>.
 I use it with PDFs -- typically a pasted quotation will retain
@@ -151,7 +150,7 @@ vim.keymap.set('n', '<leader>d',  function()
 end)
 -- }}}
 
---[[ Set makeprg to pandoc {{{
+--[[ Set makeprg to pandoc                                    {{{
 I use John MacFarlane's wonderful pandoc to convert markdown to
 Word documents. Here I set it up as my `makeprg`.
 

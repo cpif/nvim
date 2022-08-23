@@ -27,6 +27,21 @@ local normal	    = {
 sethi(normal)
 -- }}}
 
+-- StatusLine     {{{
+local statusline = {
+  specs           = {
+    foreground    = 'black',
+    background    = '#eeeeee',
+    ctermfg       = 'black',
+    ctermbg       = 190,
+  },
+  categories      = {
+    'StatusLine',
+  }
+}
+sethi(statusline)
+-- }}}
+
 -- Folds          {{{
 local fold        = {
   specs           = {

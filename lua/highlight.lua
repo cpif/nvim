@@ -30,8 +30,8 @@ sethi(normal)
 -- StatusLine     {{{
 local statusline = {
   specs           = {
-    foreground    = 'black',
-    background    = '#eeeeee',
+    background    = 'black',
+    foreground    = '#eeeeee',
     ctermfg       = 'black',
     ctermbg       = 190,
   },

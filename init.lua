@@ -123,6 +123,10 @@ end)
 -- Add blank line above current line
 vim.keymap.set('n', '<leader>o', 'O<esc>0D')
 
+-- I love the `g-<ctrl-a>` command, but tmux eats it.
+vim.keymap.set('v', '<leader>a', 'g<C-a>')
+vim.keymap.set('n', '<leader>a', '<C-a>')
+
 -- Better moving between windows
 vim.keymap.set('n', '<up>',    '<C-w>k')
 vim.keymap.set('n', '<down>',  '<C-w>j')

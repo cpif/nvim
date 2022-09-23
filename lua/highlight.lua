@@ -15,10 +15,10 @@ vim.g.markdown_fenced_languages = {
 -- Normal         {{{
 local normal	    = {
   specs           = {
-    foreground    = 'black',
-    background    = '#eeeeee',
-    ctermfg       = 'grey',
-    ctermbg       = 'NONE'
+--  foreground    = 'black',
+--  background    = '#eeeeee',
+    ctermfg       = 7,
+    ctermbg       = 0,
   },
   categories      = {
     'Normal', 'LineNr', 'Pmenu', 'FloatBorder',
@@ -30,10 +30,10 @@ sethi(normal)
 -- StatusLine     {{{
 local statusline = {
   specs           = {
-    background    = 'black',
-    foreground    = '#eeeeee',
-    ctermfg       = 'black',
-    ctermbg       = 190,
+    foreground    = 'black',
+    background    = '#eeeeee',
+    ctermfg       = 0,
+    ctermbg       = 7,
   },
   categories      = {
     'StatusLine',
@@ -42,6 +42,7 @@ local statusline = {
 sethi(statusline)
 -- }}}
 
+--[[
 -- Folds          {{{
 local fold        = {
   specs           = {
@@ -152,3 +153,4 @@ local PreProc     = {
 }
 sethi(PreProc)
 -- }}}
+--]]

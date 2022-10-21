@@ -9,6 +9,7 @@ require('citations')
 require('cursor')
 require('filetypes')
 require('highlight')
+require('latex')
 require('lines')
 require('lorem')
 require('netrw')
@@ -74,7 +75,7 @@ mapfloatingwindow({
 mapfloatingwindow({
   file        = '~/.todo.md',
   open        = false,
-  leader      = 't',
+  leader      = 'l',
   scratch     = false,
   size        = { 0.6, 0.6 },
   buffer      = 0,
@@ -126,6 +127,10 @@ vim.keymap.set('n', '<leader>o', 'O<esc>0D')
 
 -- Run ctags on bibliography
 vim.keymap.set('n', '<leader>t', function() bibtags() end)
+
+-- Update statusline (why? to update the wordcount)
+vim.keymap.set('n', '<leader>w',
+  function() vim.wo.statusline = setstatus() end)
 
 -- I love the `g-<ctrl-a>` command, but tmux eats it.
 vim.keymap.set('v', '<leader>a', 'g<C-a>')

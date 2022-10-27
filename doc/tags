@@ -23,5 +23,7 @@ booklist-remembered	booklist.txt	/*booklist-remembered*
 booklist.txt	booklist.txt	/*booklist.txt*
 ctrl-a-letters	my-tips.txt	/*ctrl-a-letters*
 hex-words	my-tips.txt	/*hex-words*
+lua-neq	my-lua.txt	/*lua-neq*
+lua-not-equal	my-lua.txt	/*lua-not-equal*
 my-tips.txt	my-tips.txt	/*my-tips.txt*
 table-widths	my-tips.txt	/*table-widths*

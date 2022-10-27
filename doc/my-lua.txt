@@ -1,0 +1,11 @@
+my-lua.txt              Lua's syntax is sometimes not what I
+                        expect it to be. Hopefully I will
+                        remember to document these surprises
+                        here.
+
+=================================================================
+LUA NOT EQUAL                               *lua-not-equal* *lua-neq*
+
+It's not `!=`, it's `~=`.
+
+vim:tw=65:ts=4:ft=help

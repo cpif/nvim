@@ -63,3 +63,11 @@ vim.api.nvim_create_autocmd("FileType", {
   once    = false,
   pattern = {"html",}
 })
+
+-- LaTeX template (very rudimentary)
+
+vim.api.nvim_create_autocmd("BufNewFile", {
+  command = "0r ~/.vimplates/tex",
+  once    = false,
+  pattern = {"*.tex",}
+})

@@ -8,7 +8,7 @@ Functions related to the bibtex bibliography file I maintain.
 -- options from ctags.
 
 function bibtags()
-  vim.cmd("silent !ctags -f ~/Bibliography/tags --language-force=bibtex --kinds-bibtex=e ~/Bibliography/bibliography.bib 2> /dev/null")
+  vim.cmd('silent !ctags -f ~/Bibliography/tags --language-force=bibtex --kinds-bibtex=e ~/Bibliography/bibliography.bib 2> /dev/null')
 end
 
 -- Make the tagfile from the bibliography globally available

@@ -8,8 +8,8 @@ end
 function makefloatingwindow(table)
   table.buffer      = vim.api.nvim_create_buf(false, table.scratch)
 
-  local width       = vim.api.nvim_get_option("columns")
-  local height      = vim.api.nvim_get_option("lines")
+  local width       = vim.api.nvim_get_option('columns')
+  local height      = vim.api.nvim_get_option('lines')
 
   local win_width   = math.ceil(width  * table.size[1])
   local win_height  = math.ceil(height * table.size[2]- 4)
@@ -18,9 +18,9 @@ function makefloatingwindow(table)
   local row         = math.ceil((height - win_height) / 2 - 1)
 
   local opts = {
-    style           = "minimal",
-    relative        = "editor",
-    border          = "double",
+    style           = 'minimal',
+    relative        = 'editor',
+    border          = 'double',
     width           = win_width,
     height          = win_height,
     col             = col,

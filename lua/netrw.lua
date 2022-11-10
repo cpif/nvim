@@ -20,7 +20,7 @@ vim.g.netrw_banner       = 0
 vim.g.netrw_browse_split = 4
 vim.g.netrw_winsize      = 20
 
-vim.api.nvim_create_autocmd("FileType", {
+vim.api.nvim_create_autocmd('FileType', {
   callback = function() vim.wo.statusline = 'FILES' end,
   once     = false,
   pattern  = { 'netrw', },

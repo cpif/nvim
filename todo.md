@@ -19,7 +19,7 @@
   -- which is better?
 - [ ] Similarly, check out `strings.lua`, which uses folds like
   `highlight.lua`
-- [ ] I also would like double and single quotes to be more
+- [x] I also would like double and single quotes to be more
   consistent across files -- why haven't I dont that anyway?
 - [x] Some floating windows (currently to-do list and the
   scratchpad) should set textwidth. They don't, but I think they

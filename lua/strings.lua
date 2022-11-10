@@ -16,7 +16,7 @@ function lasthyphen(str)
   if string.sub(str, -1) == '-' then
     return string.sub(str, 1, -2)
   else
-    return str .. " "
+    return str .. ' '
   end
 end
 --}}}
@@ -27,7 +27,7 @@ Like `gJ`, but implemented here, and with `lasthyphen` from
 above. ]]
 
 function joinstrings(table)
-  local joined = "> "
+  local joined = '> '
   for i, v in ipairs(table) do 
     joined = joined .. lasthyphen(v)
   end

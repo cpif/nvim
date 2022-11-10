@@ -43,5 +43,10 @@ to set |'nrformats'|. Example:
 >
     :set nrformats+=alpha
 <
+=================================================================
+LUA NOT EQUAL                               *lua-not-equal* *lua-neq*
+
+It's not `!=`, it's `~=`. What the fuck, lua?
+
 
 vim:tw=65:ts=4:ft=help

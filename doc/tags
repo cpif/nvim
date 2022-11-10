@@ -16,14 +16,9 @@ bibtex-proceedings	bibtex-help.txt	/*bibtex-proceedings*
 bibtex-techreport	bibtex-help.txt	/*bibtex-techreport*
 bibtex-titles	bibtex-help.txt	/*bibtex-titles*
 bibtex-unpublished	bibtex-help.txt	/*bibtex-unpublished*
-booklist	booklist.txt	/*booklist*
-booklist-19th	booklist.txt	/*booklist-19th*
-booklist-modernism	booklist.txt	/*booklist-modernism*
-booklist-remembered	booklist.txt	/*booklist-remembered*
-booklist.txt	booklist.txt	/*booklist.txt*
 ctrl-a-letters	my-tips.txt	/*ctrl-a-letters*
 hex-words	my-tips.txt	/*hex-words*
-lua-neq	my-lua.txt	/*lua-neq*
-lua-not-equal	my-lua.txt	/*lua-not-equal*
+lua-neq	my-tips.txt	/*lua-neq*
+lua-not-equal	my-tips.txt	/*lua-not-equal*
 my-tips.txt	my-tips.txt	/*my-tips.txt*
 table-widths	my-tips.txt	/*table-widths*

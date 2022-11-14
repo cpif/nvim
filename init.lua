@@ -5,7 +5,6 @@
                                                 -- Andy Warhol ]]
 require('abbreviations')
 require('bibliography')
-require('citations')
 require('cursor')
 require('filetypes')
 require('highlight')

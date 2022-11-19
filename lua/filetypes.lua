@@ -59,7 +59,7 @@ vim.api.nvim_create_autocmd('FileType', {
 }})
 
 vim.api.nvim_create_autocmd('FileType', {
-  command = 'setlocal spell',
+  command = 'set spell',
   once    = false,
   pattern = {'md',
              'txt',
@@ -67,7 +67,7 @@ vim.api.nvim_create_autocmd('FileType', {
 
 vim.api.nvim_create_autocmd('FileType', {
   callback  = function ()
-      vim.o.spellfile = '/home/cpif/.config/nvim/.spell.txt.add'
+      vim.o.spellfile = '/home/cpif/.vimstuff/spell.txt.add'
     end,
   once      = false,
   pattern   = {'md',

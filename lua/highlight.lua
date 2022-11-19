@@ -38,6 +38,7 @@ local spellbad    = {
     'SpellLocal', 'SpellRare',
   }
 }
+sethi(spellbad)
 -- }}}
 
 -- StatusLine     {{{

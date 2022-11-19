@@ -27,6 +27,19 @@ local normal	    = {
 sethi(normal)
 -- }}}
 
+-- SpellBad       {{{
+local spellbad    = {
+  specs           = {
+    ctermfg       = 0,
+    ctermbg       = 1,
+  },
+  categories      = {
+    'SpellBad', 'SpellCap',
+    'SpellLocal', 'SpellRare',
+  }
+}
+-- }}}
+
 -- StatusLine     {{{
 local statusline = {
   specs           = {

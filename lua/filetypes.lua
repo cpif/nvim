@@ -46,6 +46,7 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = {'yaml',
              'lua',
              'html',
+             'elm',
 }})
 
 vim.api.nvim_create_autocmd('FileType', {
@@ -54,7 +55,25 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = {'yaml',
              'lua',
              'html',
+             'elm',
 }})
+
+vim.api.nvim_create_autocmd('FileType', {
+  command = 'setlocal spell',
+  once    = false,
+  pattern = {'md',
+             'txt',
+}})
+
+vim.api.nvim_create_autocmd('FileType', {
+  callback  = function ()
+      vim.o.spellfile = '/home/cpif/.config/nvim/.spell.txt.add'
+    end,
+  once      = false,
+  pattern   = {'md',
+               'txt',
+}})
+
 
 -- autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 

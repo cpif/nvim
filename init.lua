@@ -6,6 +6,7 @@
 require('abbreviations')
 require('bibliography')
 require('cursor')
+require('emacs')
 require('filetypes')
 require('highlight')
 require('lines')

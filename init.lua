@@ -59,7 +59,7 @@ require('floatingwindows')
 -- The following table contains everything you need to make a
 -- floating window.
 mapfloatingwindow({
-  file        = '~/Bibliography/bibliography.bib',
+  file        = '~/biblio/bibliography.bib',
   open        = false,        -- The float is not open... yet
   leader      = 'b',          -- Press <leader> then "b" to open float
   scratch     = false,        -- "Scratch" will make buffer delete instantly

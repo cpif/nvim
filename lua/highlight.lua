@@ -22,9 +22,25 @@ local normal	    = {
   },
   categories      = {
     'Normal', 'LineNr', 'Pmenu', 'FloatBorder',
+    'NonText',
   }
 }
 sethi(normal)
+-- }}}
+
+-- Errors         {{{
+local errors      = {
+  specs           = {
+--  foreground    = 'black',
+--  background    = '#eeeeee',
+    ctermfg       = 0,
+    ctermbg       = 1,
+  },
+  categories      = {
+    'SpellBad', 'Error',
+  }
+}
+sethi(errors)
 -- }}}
 
 -- StatusLine     {{{
@@ -42,14 +58,11 @@ local statusline = {
 sethi(statusline)
 -- }}}
 
---[[
 -- Folds          {{{
 local fold        = {
   specs           = {
-    foreground    = 'black',
-    background    = '#eeeeee',
-    ctermfg       = 'black',
-    ctermbg       = 'darkcyan'
+    ctermfg       = 15,
+    ctermbg       = 8,
   },
   categories      = {
     'Folded', 'FoldColumn',
@@ -58,6 +71,7 @@ local fold        = {
 sethi(fold)
 -- }}}
 
+--[[
 -- Comment        {{{
 local Comment     = {
   specs           = {

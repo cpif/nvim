@@ -1,16 +1,15 @@
---[[ PREAMBLE                                 {{{
+--[[ PREAMBLE                                                 {{{
 
-These are small lua functions that work on strings. Some of them
-call each other at the moment. That may or may not be
-"functional" enough.
-
+     These are small lua functions that work on strings. Some of
+     them call each other at the moment. That may or may not be
+     "functional" enough.
 }}}]]
 
---[[ STRIPPING HYPHENS FROM THE ENDS OF LINES {{{
+--[[ STRIPPING HYPHENS FROM THE ENDS OF LINES                 {{{
 
-Sometimes, it's useful to be able to strip hyphens from the ends
-of lines. For example, when pasting a quotation from a pdf with
-broken, wrapped lines. ]]
+     Sometimes, it's useful to be able to strip hyphens from the
+     ends of lines. For example, when pasting a quotation from a
+     pdf with broken, wrapped lines. ]]
 
 function lasthyphen(str)
   if string.sub(str, -1) == '-' then
@@ -21,10 +20,10 @@ function lasthyphen(str)
 end
 --}}}
 
---[[ JOINING A TABLE OF STRINGS               {{{
+--[[ JOINING A TABLE OF STRINGS                               {{{
 
-Like `gJ`, but implemented here, and with `lasthyphen` from
-above. ]]
+     Like `gJ`, but implemented here, and with `lasthyphen` from
+     above. ]]
 
 function joinstrings(table)
   local joined = '> '
@@ -35,16 +34,31 @@ function joinstrings(table)
 end
 --}}}
 
---[[ CLEANING UP QUOTATIONS                   {{{
+--[[ CLEANING UP QUOTATIONS                                   {{{
 
-For copying/pasting, quote-cleaning, etc., this lua script
-removes all "smart" quotes, n-dashes, and m-dashes.
-
-]]
+     For copying/pasting, quote-cleaning, etc., this lua script
+     removes all "smart" quotes, n-dashes, and m-dashes. ]]
 
 function quoteclean()
   vim.cmd('%s/‘\\|’/\'/ge')
   vim.cmd('%s/“\\|”/"/ge')
   vim.cmd('%s/ \\?\\(—\\|–\\) \\?/ -- /ge')
+end
+--}}}
+
+--[[ PROCESS A SET OF LINES OF TEXT                           {{{
+
+     The most general kind of text processing you might want to
+     do is run every line in a text file through a particular
+     function. ]]
+
+function processtext(func)
+  local a = vim.api
+  local filelines = a.nvim_buf_get_lines(0, 0, -1, true)
+  local replacement = {}
+  for i,v in ipairs(filelines) do
+    replacement[i] = func(filelines[i])
+  end
+  a.nvim_buf_set_lines(0, 0, -1, true, replacement)
 end
 --}}}

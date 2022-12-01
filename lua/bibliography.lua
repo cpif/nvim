@@ -1,10 +1,5 @@
---[[
-
-Functions related to the bibtex bibliography file I maintain.
-
-ctags options, and global tagfile.
-
---]]
+--[[ Functions related to the bibtex bibliography file I
+     maintain. ]]
 
 function bibtags()
   vim.cmd('silent !ctags -f ~/biblio/tags --language-force=bibtex ~/biblio/bibliography.bib 2> /dev/null')

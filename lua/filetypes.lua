@@ -1,11 +1,7 @@
---[[
+--[[ This file is a testament to how it may, sometimes, be
+     simpler to do it in vimscript.
 
-This file is a testament to how it may, sometimes, be simpler to
-do it in vimscript.
-
-TODO: find out if there's a less stupid way.
-
-]]
+     TODO: find out if there's a less stupid way. ]]
 
 local wrapless = vim.api.nvim_create_augroup('wrapless', {
     clear = true

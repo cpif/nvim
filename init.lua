@@ -5,12 +5,9 @@
                                                 -- Andy Warhol ]]
 require('abbreviations')
 require('bibliography')
-require('cursor')
-require('emacs')
 require('filetypes')
 require('highlight')
 require('keymap')
-require('lines')
 require('lorem')
 require('netrw')
 require('opts')

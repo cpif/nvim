@@ -1,9 +1,6 @@
---[[
-
-> Lose no time; be always employ'd in something useful; cut off
-> all unnecessary actions.
-                                             -- Benjamin Franklin
-]]
+--[[ Lose no time; be always employ'd in something useful; cut
+     off all unnecessary actions.
+                                          -- Benjamin Franklin ]]
 
 function checkuncheck(checkline)
   if string.sub(checkline, 3, 5) == '[ ]' then

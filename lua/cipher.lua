@@ -1,9 +1,6 @@
---[[
-
-This is a version of the cipher Wittgenstein used on the verso
-side of his diaries... only he enciphered in his head.
-
-]]
+--[[ This is a version of the cipher Wittgenstein used on the
+     verso side of his diaries... only he enciphered in his head.
+     ]]
 
 code = {
   a='z', b='y', c='x', d='w', e='v',
@@ -24,13 +21,9 @@ function encipher(str)
   local ciphstr = ''
   for c in str:gmatch('.') do
     if c:match('%a') then
-      ciphstr = ciphstr..code[c]
-    elseif c == ' ' then
-      ciphstr = ciphstr..'&'
-    elseif c == '&' then
-      ciphstr = ciphstr..' '
+      ciphstr = ciphstr .. code[c]
     else
-      ciphstr = ciphstr..c
+      ciphstr = ciphstr .. c
     end
   end
   return ciphstr

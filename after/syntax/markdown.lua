@@ -3,10 +3,8 @@ function setmdheaders(headercolors)
   for i,v in ipairs(headercolors) do
     sethi({
       specs           = {
-        foreground    ='White',
-        background    = v.cterm,
         bold          = true,
-        ctermfg       ='White',
+        ctermfg       = 0,
         ctermbg       = v.cterm,
         cterm         = {
           bold        = true,
@@ -22,9 +20,12 @@ end
 -- }}}
 
 local headercolors = {
-  { name = 'H1', cterm = 'Blue', },
-  { name = 'H2', cterm = 'Magenta', },
-  { name = 'H3', cterm = 'DarkGreen', },
+  { name = 'H1', cterm = 3, },
+  { name = 'H2', cterm = 7, },
+  { name = 'H3', cterm = 9, },
+  { name = 'H4', cterm = 6, },
+  { name = 'H5', cterm = 15, },
+  { name = 'H6', cterm = 2, },
 }
 setmdheaders(headercolors)
 

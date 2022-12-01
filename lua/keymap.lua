@@ -127,6 +127,7 @@ setmap('i', '<A-f>', '<C-Right>')
 -- Cipher buffer                                              {{{
 setmap('n', '<leader>c', function() 
   require('cipher')
+  require('strings')
   processtext(encipher)
 end)
 --}}}

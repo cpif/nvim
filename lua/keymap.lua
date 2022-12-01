@@ -1,3 +1,5 @@
+local setmap = vim.keymap.set
+
 --[[ Floating Windows                                         {{{
 
      The following section creates mappings for "floating
@@ -77,7 +79,7 @@ mapfloatingwindow({
      all the lines, removing any hyphenated words that were
      wrapped across lines. ]]
 
-vim.keymap.set('n', '<M-p>', function()
+setmap('n', '<M-p>', function()
   require('strings')
   local clipb = vim.split(vim.fn.getreg('+'), '\n')
   vim.api.nvim_set_current_line(joinstrings(clipb))
@@ -90,38 +92,47 @@ end)
      Deletes unwanted artifacts from copying and pasting,
      including "smart" quotes and m- and n-dashes. ]]
 
-vim.keymap.set('n', '<leader>q', function()
+setmap('n', '<leader>q', function()
 	require('strings')
 	quoteclean()
 end)
 
 --}}}
 
-vim.keymap.set('n', '<leader>o', 'O<esc>0D')
+-- Add blank line above the current one                       {{{
+setmap('n', '<leader>o', 'O<esc>0D')
+--}}}
 
 -- Generate tag files                                         {{{
-vim.keymap.set('n', '<leader>t', function()
+setmap('n', '<leader>t', function()
     require('bibliography')
     bibtags() 
   end)
 --}}}
 
 -- Better moving between windows                              {{{
-vim.keymap.set('n', '<up>',    '<C-w>k')
-vim.keymap.set('n', '<down>',  '<C-w>j')
-vim.keymap.set('n', '<left>',  '<C-w>h')
-vim.keymap.set('n', '<right>', '<C-w>l')
+setmap('n', '<up>',    '<C-w>k')
+setmap('n', '<down>',  '<C-w>j')
+setmap('n', '<left>',  '<C-w>h')
+setmap('n', '<right>', '<C-w>l')
+--}}}
+
+-- Emacs insert mode motions                                  {{{
+setmap('i', '<C-B>', '<Left>')
+setmap('i', '<C-F>', '<Right>')
+setmap('i', '<A-b>', '<C-Left>')
+setmap('i', '<A-f>', '<C-Right>')
 --}}}
 
 -- Cipher buffer                                              {{{
-vim.keymap.set('n', '<leader>c', function() 
+setmap('n', '<leader>c', function() 
   require('cipher')
   processtext(encipher)
 end)
 --}}}
 
 -- Check markdown boxes                                       {{{
-vim.keymap.set('n', '<leader>d',  function()
+setmap('n', '<leader>d',  function()
   require('checkbox')
   local checkline = vim.api.nvim_get_current_line()
   vim.api.nvim_set_current_line(checkuncheck(checkline))

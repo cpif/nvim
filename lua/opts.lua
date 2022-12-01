@@ -1,4 +1,5 @@
 local opts          = vim.o
+local global        = vim.go
 --[[ Set pandoc export options                                {{{
 
      I use John MacFarlane's wonderful pandoc to convert markdown
@@ -31,3 +32,6 @@ opts.dictionary     = '/usr/share/dict/american-english'
 opts.equalprg       = 'pandoc'
 opts.ignorecase     = true
 opts.smartcase      = true
+
+global.guicursor    =
+  'i-ci:ver30-iCursor-blinkwait500-blinkon250-blinkoff250'

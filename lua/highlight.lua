@@ -22,6 +22,7 @@ local normal	    = {
   },
   categories      = {
     'Normal', 'LineNr', 'Pmenu', 'FloatBorder',
+    'EndOfBuffer',
   }
 }
 sethi(normal)

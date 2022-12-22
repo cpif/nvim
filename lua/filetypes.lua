@@ -90,3 +90,36 @@ vim.api.nvim_create_autocmd('BufNewFile', {
   once    = false,
   pattern = {'*.tex',}
 })
+
+local wrapless = vim.api.nvim_create_augroup('noweb', {
+    clear = true
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  command = 'set filetype=noweb',
+  group   = 'noweb',
+  once    = false,
+  pattern = {'*.nw',}
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  command = 'let noweb_backend = "tex"',
+  group   = 'noweb',
+  once    = false,
+  pattern = {'*.nw',}
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  command = 'let noweb_language = "awk"',
+  group   = 'noweb',
+  once    = false,
+  pattern = {'*.nw',}
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  command = 'let noweb_foldcode = 1',
+  group   = 'noweb',
+  once    = false,
+  pattern = {'*.nw',}
+})
+

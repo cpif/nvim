@@ -13,6 +13,5 @@ some hobbyist programming projects, I use nvim for writing, not
 for coding. If you happen to be in the same position, there might
 be a useful idea here for you here and there.
 
-[^1]: Notable exception: Syntax highlighting for `fish` scripts,
-  written in vimscript; there is no attribution in the file.
-  Thanks, whoever I got that from!
+[^1]: Notable exception: Syntax files written in
+  vimscript.

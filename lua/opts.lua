@@ -14,3 +14,10 @@ vim.o.equalprg        = 'pandoc'
 vim.o.ignorecase      = true
 vim.o.smartcase       = true
 
+local backups         = vim.fn.expand('~/.vim-temp//')
+vim.o.backupdir       = backups
+vim.o.directory       = backups
+vim.o.undodir         = backups
+
+vim.go.guicursor =
+  'i-ci:ver30-iCursor-blinkwait500-blinkon250-blinkoff250'

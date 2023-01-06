@@ -5,19 +5,17 @@
                                                 -- Andy Warhol ]]
 require('abbreviations')
 require('bibliography')
-require('cursor')
-require('emacs')
 require('filetypes')
+require('floatingwindows')
 require('highlight')
-require('lines')
-require('lorem')
+require('maps')
 require('netrw')
 require('opts')
 require('plug')
-require('startdir')
 require('status')
-require('swapfiles')
-
+require('system')
+require('trick')
+require('utils')
 
 --[[ Floating Windows                                         {{{
 
@@ -157,7 +155,6 @@ I love the fish shell, but it works like shit on WSL so I use
 bash. The `cmdsub` external decides which shell I'm using and
 picks the syntax for command substitutions (the fish shell uses
 parentheses instead of bash's backticks). ]]
-require('cmdsub')
 local docout  = ' -o ' .. lcmdsub .. 'basename % .md' .. rcmdsub
   .. '.docx'
 vim.o.makeprg = 'pandoc % -dbasic ' .. docout

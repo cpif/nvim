@@ -21,3 +21,9 @@ vim.o.undodir         = backups
 
 vim.go.guicursor =
   'i-ci:ver30-iCursor-blinkwait500-blinkon250-blinkoff250'
+
+vim.g.vimwiki_list = {{
+  path    = '~/wiki',
+  syntax  = 'markdown',
+  ext     = '.md',
+}}

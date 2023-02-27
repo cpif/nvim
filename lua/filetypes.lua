@@ -70,6 +70,13 @@ vim.api.nvim_create_autocmd('FileType', {
                'txt',
 }})
 
+vim.api.nvim_create_autocmd('FileType', {
+  command = 'set spell',
+  once    = false,
+  pattern = {'md',
+             'txt',
+             'tex',
+}})
 
 -- autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 

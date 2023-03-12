@@ -1,37 +1,30 @@
-local opts          = vim.o
-local global        = vim.go
---[[ Set pandoc export options                                {{{
+vim.o.linebreak       = true
+vim.o.textwidth       = 65
+vim.o.autoindent      = true
+vim.o.rnu             = true
+vim.o.hlsearch        = false
+vim.o.foldlevelstart  = 0
+vim.o.foldmethod      = 'marker'
+vim.o.expandtab       = true
+vim.o.tabstop         = 4
+vim.o.shiftwidth      = 4
+vim.o.guifont         = "Courier:h16"
+vim.o.dictionary      = '/usr/share/dict/american-english'
+vim.o.equalprg        = 'pandoc'
+vim.o.ignorecase      = true
+vim.o.smartcase       = true
 
-     I use John MacFarlane's wonderful pandoc to convert markdown
-     to Word documents. This sets up some output options for it.
+local backups         = vim.fn.expand('~/.vim-temp//')
+vim.o.backupdir       = backups
+vim.o.directory       = backups
+vim.o.undodir         = backups
 
-     The problem is: I love the fish shell, but it works like
-     shit on WSL so I use bash. The `cmdsub` external decides
-     which shell I'm using and picks the syntax for command
-     substitutions (the fish shell uses parentheses instead of
-     bash's backticks). ]]
-
-require('cmdsub')
-local docout  = ' -o ' .. lcmdsub .. 'basename % .md' .. rcmdsub
-  .. '.docx'
--- }}}
-
-opts.makeprg        = 'pandoc % -dbasic ' .. docout
-opts.linebreak      = true
-opts.textwidth      = 65
-opts.autoindent     = true
-opts.rnu            = true
-opts.hlsearch       = false
-opts.foldlevelstart = 0
-opts.foldmethod     = 'marker'
-opts.expandtab      = true
-opts.tabstop        = 4
-opts.shiftwidth     = 4
-opts.guifont        = "Courier:h16"
-opts.dictionary     = '/usr/share/dict/american-english'
-opts.equalprg       = 'pandoc'
-opts.ignorecase     = true
-opts.smartcase      = true
-
-global.guicursor    =
+vim.go.guicursor =
   'i-ci:ver30-iCursor-blinkwait500-blinkon250-blinkoff250'
+
+vim.g.vimwiki_list = {{
+  path    = '~/wiki',
+  syntax  = 'markdown',
+  ext     = 'md',
+}}
+vim.g.vimwiki_global_ext = 0

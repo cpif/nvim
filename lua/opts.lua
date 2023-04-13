@@ -13,6 +13,7 @@ vim.o.dictionary      = '/usr/share/dict/american-english-huge'
 vim.o.equalprg        = 'pandoc'
 vim.o.ignorecase      = true
 vim.o.smartcase       = true
+vim.o.grepprg         = 'rg --vimgrep $*'
 
 local backups         = vim.fn.expand('~/.vim-temp//')
 vim.o.backupdir       = backups

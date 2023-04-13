@@ -7,7 +7,7 @@ require('abbreviations')
 require('bibliography')
 require('filetypes')
 require('floatingwindows')
---require('highlight')
+require('highlight')
 require('maps')
 require('netrw')
 require('opts')
@@ -45,7 +45,7 @@ require('floatingwindows')
 -- The following table contains everything you need to make a
 -- floating window.
 mapfloatingwindow({
-  file        = '~/bibliography/bibliography.bib',
+  file        = '~/Bibliography/bibliography.bib',
   open        = false,        -- The float is not open... yet
   leader      = 'b',          -- Press <leader> then "b" to open float
   scratch     = false,        -- "Scratch" will make buffer delete instantly
@@ -117,10 +117,8 @@ vim.keymap.set('n', '<left>',  '<C-w>h')
 vim.keymap.set('n', '<right>', '<C-w>l')
 
 -- Cipher buffer
-vim.keymap.set('n', '<leader>c', function() 
-  require('cipher')
-  processtext(encipher)
-end)
+vim.keymap.set('n', '<leader>c',
+                    'o<!63A-4o64A-A>kk')
 
 -- Better normal mode -- thanks Steve
 -- vim.keymap.set('i', 'jk', '<esc>')
@@ -128,6 +126,9 @@ end)
 
 -- Tag completion
 vim.keymap.set('i', '<F2>', '')
+
+-- uppercase line
+vim.keymap.set('i', '<M-u>', 'gUU`]a')
 
 -- Check markdown boxes
 vim.keymap.set('n', '<leader>d',  function()

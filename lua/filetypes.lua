@@ -59,10 +59,11 @@ local spellcheck = vim.api.nvim_create_augroup('spellcheck', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
-  command = 'set spell',
+  command = 'setlocal spell',
   once    = false,
-  pattern = {'md',
-             'txt',
+  pattern = {'markdown',
+             'tex',
+             'text',
 }})
 
 vim.api.nvim_create_autocmd('FileType', {

@@ -3,4 +3,5 @@ return require('packer').startup(function(use)
   use 'lervag/vimtex'
   use 'tpope/vim-surround'
   use 'vimwiki/vimwiki'
+  use 'ActivityWatch/aw-watcher-vim'
 end)

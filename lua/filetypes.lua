@@ -54,6 +54,10 @@ vim.api.nvim_create_autocmd('FileType', {
              'elm',
 }})
 
+local spellcheck = vim.api.nvim_create_augroup('spellcheck', {
+    clear = true
+})
+
 vim.api.nvim_create_autocmd('FileType', {
   command = 'set spell',
   once    = false,

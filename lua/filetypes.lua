@@ -1,13 +1,9 @@
---[[ This file is a testament to how it may, sometimes, be
-     simpler to do it in vimscript.
+local autocmd = vim.api.nvim_create_autocmd
+local augroup = vim.api.nvim_create_augroup
 
-     TODO: find out if there's a less stupid way. ]]
+local wrapless = augroup('wrapless', { clear = true })
 
-local wrapless = vim.api.nvim_create_augroup('wrapless', {
-    clear = true
-})
-
-vim.api.nvim_create_autocmd('FileType', {
+autocmd('FileType', {
   command = 'setlocal textwidth=0',
   group   = wrapless,
   once    = false,
@@ -16,27 +12,25 @@ vim.api.nvim_create_autocmd('FileType', {
              'fish',
 }})
 
-local spreadsheets = vim.api.nvim_create_augroup('spreadsheets', {
-    clear = true
-})
+local spreads = augroup('spreads', { clear = true })
 
-vim.api.nvim_create_autocmd('BufEnter', {
+autocmd('BufEnter', {
   command = 'setlocal textwidth=0',
-  group   = spreadsheets,
+  group   = spreads,
   once    = false,
   pattern = {'*.tsv',
              '*.csv',
 }})
 
-vim.api.nvim_create_autocmd('BufEnter', {
+autocmd('BufEnter', {
   command = 'setlocal noexpandtab',
-  group   = spreadsheets,
+  group   = spreads,
   once    = false,
   pattern = {'*.tsv',
              '*.csv',
 }})
 
-vim.api.nvim_create_autocmd('FileType', {
+autocmd('FileType', {
   command = 'setlocal tabstop=2',
   once    = false,
   pattern = {'yaml',
@@ -45,7 +39,7 @@ vim.api.nvim_create_autocmd('FileType', {
              'elm',
 }})
 
-vim.api.nvim_create_autocmd('FileType', {
+autocmd('FileType', {
   command = 'setlocal shiftwidth=2',
   once    = false,
   pattern = {'yaml',
@@ -54,11 +48,9 @@ vim.api.nvim_create_autocmd('FileType', {
              'elm',
 }})
 
-local spellcheck = vim.api.nvim_create_augroup('spellcheck', {
-    clear = true
-})
+local spellcheck = augroup('spellcheck', { clear = true })
 
-vim.api.nvim_create_autocmd('FileType', {
+autocmd('FileType', {
   command = 'setlocal spell',
   once    = false,
   pattern = {'markdown',
@@ -66,68 +58,14 @@ vim.api.nvim_create_autocmd('FileType', {
              'text',
 }})
 
-vim.api.nvim_create_autocmd('FileType', {
-  callback  = function ()
-      vim.o.spellfile = '/home/cpif/.vimstuff/spell.txt.add'
-    end,
-  once      = false,
-  pattern   = {'md',
-               'txt',
-}})
-
-vim.api.nvim_create_autocmd('FileType', {
-  command = 'set spell',
-  once    = false,
-  pattern = {'md',
-             'txt',
-             'tex',
-}})
-
--- autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
-
-vim.api.nvim_create_autocmd('FileType', {
+autocmd('FileType', {
   command = 'set omnifunc=htmlcomplete#CompleteTags',
   once    = false,
   pattern = {'html',}
 })
 
--- LaTeX template (very rudimentary)
-
-vim.api.nvim_create_autocmd('BufNewFile', {
+autocmd('BufNewFile', {
   command = '0r ~/.vimplates/tex',
   once    = false,
   pattern = {'*.tex',}
 })
-
-local wrapless = vim.api.nvim_create_augroup('noweb', {
-    clear = true
-})
-
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  command = 'set filetype=noweb',
-  group   = 'noweb',
-  once    = false,
-  pattern = {'*.nw',}
-})
-
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  command = 'let noweb_backend = "tex"',
-  group   = 'noweb',
-  once    = false,
-  pattern = {'*.nw',}
-})
-
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  command = 'let noweb_language = "awk"',
-  group   = 'noweb',
-  once    = false,
-  pattern = {'*.nw',}
-})
-
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  command = 'let noweb_foldcode = 1',
-  group   = 'noweb',
-  once    = false,
-  pattern = {'*.nw',}
-})
-

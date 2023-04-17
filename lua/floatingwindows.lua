@@ -1,3 +1,5 @@
+-- Floating window functions                                  {{{
+
 function mapfloatingwindow(table)
   vim.keymap.set('n', '<leader>' .. table.leader, function()
     if table.open == false then makefloatingwindow(table)
@@ -44,3 +46,17 @@ function closefloatingwindow(table)
   vim.api.nvim_win_close(table.window, true)
   table.open = false
 end
+
+-- }}}
+
+mapfloatingwindow({
+  file        = '~/Bibliography/bibliography.bib',
+  open        = false,        -- The float is not open... yet
+  leader      = 'b',          -- Press <leader> then "b" to open float
+  scratch     = false,        -- "Scratch" will make buffer delete instantly
+  size        = { 0.8, 0.8 }, -- Width ratio, height ratio
+  buffer      = 0,            -- Buffer number (initialized to zero, will be updated by the function)
+  window      = 0,            -- Buffer window (initialized to zero)
+  write       = true,         -- Should the buffer be written?
+  options     = {}            -- Table of buffer-local options
+})

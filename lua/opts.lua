@@ -8,12 +8,13 @@ vim.o.foldmethod      = 'marker'
 vim.o.expandtab       = true
 vim.o.tabstop         = 4
 vim.o.shiftwidth      = 4
-vim.o.guifont         = "Courier:h16"
+vim.o.guifont         = 'Courier:h16'
 vim.o.dictionary      = '/usr/share/dict/american-english-huge'
-vim.o.equalprg        = 'pandoc'
 vim.o.ignorecase      = true
 vim.o.smartcase       = true
 vim.o.grepprg         = 'rg --vimgrep $*'
+vim.o.makeprg         = 'pandoc % -dbasic -so `basename % .md`.docx'
+vim.o.equalprg        = 'pandoc'
 
 local backups         = vim.fn.expand('~/.vim-temp//')
 vim.o.backupdir       = backups
@@ -28,4 +29,5 @@ vim.g.vimwiki_list = {{
   syntax  = 'markdown',
   ext     = 'md',
 }}
+
 vim.g.vimwiki_global_ext = 0

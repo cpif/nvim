@@ -12,7 +12,7 @@ vim.o.guifont         = 'Courier:h16'
 vim.o.dictionary      = '/usr/share/dict/american-english-huge'
 vim.o.ignorecase      = true
 vim.o.smartcase       = true
-vim.o.grepprg         = 'rg --vimgrep $*'
+vim.o.grepprg         = 'rg -i --vimgrep $*'
 vim.o.makeprg         = 'pandoc % -dbasic -so `basename % .md`.docx'
 vim.o.equalprg        = 'pandoc'
 

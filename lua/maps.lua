@@ -28,7 +28,7 @@ map('n', '<leader>t', function() bibtags() end)
 map('v', '<leader>a', 'g<C-a>')
 map('n', '<leader>a', '<C-a>')
 
--- Cipher buffer
+-- HTML comment
 map('n', '<leader>c', 'o<!63A-4o64A-A>kk')
 
 -- Check markdown boxes

@@ -5,20 +5,20 @@
 
 function checkuncheck(checkline)
   if string.sub(checkline, 3, 5) == '[ ]' then
-    return string.sub(checkline, 1, 3) .. 'x' .. string.sub(checkline, 5, -1)
-  elseif string.sub(checkline, 3, 5) == '[x]' then
+    return string.sub(checkline, 1, 3) .. 'X' .. string.sub(checkline, 5, -1)
+  elseif string.sub(checkline, 3, 5) == '[X]' then
     return string.sub(checkline, 1, 3) .. ' ' .. string.sub(checkline, 5, -1)
   elseif string.sub(checkline, 7, 9) == '[ ]' then
-    return string.sub(checkline, 1, 7) .. 'x' .. string.sub(checkline, 9, -1)
-  elseif string.sub(checkline, 7, 9) == '[x]' then
+    return string.sub(checkline, 1, 7) .. 'X' .. string.sub(checkline, 9, -1)
+  elseif string.sub(checkline, 7, 9) == '[X]' then
     return string.sub(checkline, 1, 7) .. ' ' .. string.sub(checkline, 9, -1)
   else
     print('Is that a checkbox?')
     return checkline
   end
 end
--- Lorem ipsum generator
 
+-- Lorem ipsum generator
 ipsum = {
 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit duis tristique sollicitudin nibh. Elementum pulvinar etiam non quam. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Eget dolor morbi non arcu risus quis varius. Etiam tempor orci eu lobortis elementum. Ultricies integer quis auctor elit sed. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Faucibus a pellentesque sit amet porttitor eget dolor. Urna condimentum mattis pellentesque id nibh.',
 '',
@@ -30,7 +30,6 @@ function lorem()
 end
 
 -- Cipher from Wittgenstein's journals
-
 code = {
   a='z', b='y', c='x', d='w', e='v',
   f='u', g='t', h='s', i='r', j='q',

@@ -30,7 +30,7 @@ mapfloatingwindow({
   leader      = 'b',          -- Press <leader> then "b" to open float
   scratch     = false,        -- "Scratch" will make buffer delete instantly
   size        = { 0.8, 0.8 }, -- Width ratio, height ratio
-  buffer      = 0,            -- Buffer number (initialized to zero, will be updated by the function)
+  buffer      = 0,            -- Buffer number (initialized to zero, will be updated by the f unction)
   window      = 0,            -- Buffer window (initialized to zero)
   write       = true,         -- Should the buffer be written?
   options     = {}            -- Table of buffer-local options

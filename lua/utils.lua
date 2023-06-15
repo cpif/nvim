@@ -37,3 +37,8 @@ function quoteclean()
   vim.cmd('%s/“\\|”/"/ge')
   vim.cmd('%s/ \\?\\(—\\|–\\) \\?/ -- /ge')
 end
+
+-- Update tags for nvim configuration
+function tagupdate_nvim()
+  vim.cmd('!ctags -R --languages=Lua -h .lua *')
+end

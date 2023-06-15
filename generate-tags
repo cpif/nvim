@@ -1,6 +1,0 @@
-#!/bin/bash
-
-ctags -R \
-    --languages=Lua \
-    -h .lua \
-    *

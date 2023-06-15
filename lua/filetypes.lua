@@ -16,6 +16,18 @@ vim.api.nvim_create_autocmd('FileType', {
              'fish',
 }})
 
+local spelling = vim.api.nvim_create_augroup('spellcheck', {
+  clear = true
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  command = 'setlocal spell',
+  group   = spelling,
+  once    = false,
+  pattern = {'markdown',
+             'tex',
+}})
+
 local spreadsheets = vim.api.nvim_create_augroup('spreadsheets', {
     clear = true
 })
@@ -67,3 +79,12 @@ vim.api.nvim_create_autocmd('BufNewFile', {
   once    = false,
   pattern = {'*.tex',}
 })
+
+-- Markdown previews?
+
+if ( markdownpreview == 1 ) then
+  vim.api.nvim_create_autocmd('BufWritePost', {
+    callback = mdprev,
+    pattern  = {"*.md"},
+  })
+end

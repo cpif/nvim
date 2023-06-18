@@ -25,11 +25,19 @@ vim.g.neovide_scroll_animation_length = 0.9
 vim.go.guicursor =
   'i-ci:ver30-iCursor-blinkwait500-blinkon250-blinkoff250'
 
-vim.g.vimwiki_list = {{
-  path    = '~/wiki',
-  syntax  = 'markdown',
-  ext     = 'md',
-}}
+vim.g.vimwiki_list = {
+  {
+    path    = '~/wiki',
+    syntax  = 'markdown',
+    ext     = 'md',
+  },
+  {
+    path    = '~/text',
+    syntax  = 'markdown',
+    ext     = 'md',
+  }
+}
+
 vim.g.vimwiki_global_ext = 0
 
 vim.g.markdown_fenced_languages = {

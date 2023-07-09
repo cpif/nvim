@@ -28,14 +28,13 @@ vim.go.guicursor =
 vim.g.vimwiki_list = {
   {
     path    = '~/wiki',
+    path_html = '~/.wiki_html',
+  },
+  {
+    path    = '~/blog/_posts',
     syntax  = 'markdown',
     ext     = 'md',
   },
-  {
-    path    = '~/text',
-    syntax  = 'markdown',
-    ext     = 'md',
-  }
 }
 
 vim.g.vimwiki_global_ext = 0

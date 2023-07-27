@@ -1,3 +1,4 @@
+--[[ Local alias declarations                                 {{{ ]]
 local api             = vim.api
 local aucmd           = vim.api.nvim_create_autocmd
 local augrp           = vim.api.nvim_create_augroup
@@ -18,18 +19,94 @@ local bib = {
   func.expand('~/dissertation/tags')
 }
 
-local hls = {
-  DiffAdd       = { ctermbg = 8,  },
-  DiffChange    = { ctermbg = 8,  },
-  DiffDelete    = { ctermbg = 8,  },
-  DiffText      = { ctermbg = 8,  bold = true },
-  Folded        = { ctermbg = 1,  ctermfg = 0 },
-  NormalFloat   = { ctermbg = 0,  ctermfg = 7 },
-  SpellBad      = { ctermfg = 11, underline = true },
-  SpellCap      = { ctermfg = 11, underline = true },
-  nroffRequest  = { ctermfg = 8,  },
+--}}}
+--[[ Highlights                                               {{{ ]]
+local hls    = {
+  Folded     = { ctermfg = 7, ctermbg   = 8, bold = true },
+  Normal     = { ctermfg = 7 },
+  PreProc    = { ctermfg = 6 },
+  Special    = { ctermfg = 1 },
+  SpellBad   = { ctermfg = 3, underline = true },
+  SpellCap   = { ctermfg = 3, underline = true },
+  Title      = { ctermfg = 3, bold      = true },
+  Underlined = { ctermfg = 1, underline = true },
+}
+--}}}
+--[[ Options and variables                                    {{{ ]]
+opt.linebreak      = true
+opt.textwidth      = 65
+opt.autoindent     = true
+opt.rnu            = true
+opt.hlsearch       = false
+opt.foldlevelstart = 0
+opt.foldmethod     = 'marker'
+opt.expandtab      = true
+opt.tabstop        = 4
+opt.shiftwidth     = 4
+opt.dictionary     = '/usr/share/dict/american-english'
+opt.equalprg       = 'pandoc'
+opt.ignorecase     = true
+opt.smartcase      = true
+opt.grepprg        = 'rg -i --vimgrep $*'
+opt.tags           = table.concat(bib,',')
+opt.backupdir      = backup
+opt.directory      = backup
+opt.undodir        = backup
+opt.statusline     = string.format(
+  '%.40s LINE:%3s/COL%3s',
+  '%f',
+  '%l',
+  '%v'
+)
+
+-- For some reason, this "gui" option also affects xterm
+global.guicursor =
+  'i-ci:ver30-iCursor-blinkwait500-blinkon250-blinkoff250'
+
+global_var.markdown_fenced_languages = {
+  'awk', 'lua', 'perl', 'html',
+  'sh', 'bash', 'bib',
 }
 
+--[[ Netrw options                                              {{{ ]]
+global_var.netrw_liststyle      = 3
+global_var.netrw_banner         = 0
+global_var.netrw_browse_split   = 4
+global_var.netrw_winsize        = 20
+--}}}
+--[[ VimWiki options                                          {{{ ]]
+global_var.vimwiki_list = { { path = '~/wiki', } }
+global_var.vimwiki_global_ext = 0
+global_var.vimwiki_folding = 'list'
+--}}}
+--}}}
+--[[ Abbreviations                                            {{{ ]]
+vim.cmd('cnorea myvimrc $MYVIMRC', false)
+vim.cmd('inorea precuation precaution', false)
+vim.cmd('inorea precuations precautions', false)
+vim.cmd('ia knoweldge knowledge', false)
+--}}}
+--[[ Keymaps                                                  -- {{{ ]]
+-- Capitalize a line without leaving insert mode
+map('i', '<M-u>', 'gUU`]a')
+
+-- Create a blank line above the current one
+map('n', '<leader>o', 'O<esc>0D')
+
+-- EasyAlign binding
+map({'n', 'x'}, 'ga', '<Plug>(EasyAlign)')
+
+--[[ Tmux fixes                                               {{{ ]]
+map('v', '<leader>a', 'g<C-a>')
+map('n', '<leader>a', '<C-a>')
+--}}}
+--[[ Bash/emacs-like insert mode motions                      {{{ ]]
+map('i', '<C-B>', '<Left>')
+map('i', '<C-F>', '<Right>')
+map('i', '<A-b>', '<C-Left>')
+map('i', '<A-f>', '<C-Right>')
+--}}}
+--[[ Lorem ipsum generator                                    {{{ ]]
 map('n', '<M-l>', function()
   local ipsum = {
   'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Consectetur adipiscing elit duis tristique sollicitudin nibh. Elementum pulvinar etiam non quam. Et sollicitudin ac orci phasellus egestas tellus rutrum tellus pellentesque. Eget dolor morbi non arcu risus quis varius. Etiam tempor orci eu lobortis elementum. Ultricies integer quis auctor elit sed. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Faucibus a pellentesque sit amet porttitor eget dolor. Urna condimentum mattis pellentesque id nibh.',
@@ -38,12 +115,8 @@ map('n', '<M-l>', function()
   }
   api.nvim_buf_set_lines(0, 0, -1, true, ipsum)
 end)
-
-vim.cmd('cnorea myvimrc $MYVIMRC', false)
-vim.cmd('inorea precuation precaution', false)
-vim.cmd('inorea precuations precautions', false)
-vim.cmd('ia knoweldge knowledge', false)
-
+--}}}
+--[[ Generate bibliographic tags files                        {{{ ]]
 map('n', '<leader>t', function()
   vim.cmd([[silent !ctags
     \ -f ~/biblio/tags
@@ -56,7 +129,8 @@ map('n', '<leader>t', function()
     \ ~/dissertation/bibliography.bib
     \ 2> /dev/null]])
 end)
-
+--}}}
+--[[ Open the file browser                                    {{{ ]]
 map('n', '<leader>f', function()
   if filebrowseropen then
     api.nvim_win_close(netrwwin, false)
@@ -67,29 +141,18 @@ map('n', '<leader>f', function()
     netrwwin = api.nvim_get_current_win()
   end
 end)
-
-map('i', '<C-B>', '<Left>')
-map('i', '<C-F>', '<Right>')
-map('i', '<A-b>', '<C-Left>')
-map('i', '<A-f>', '<C-Right>')
-
+--}}}
+--[[ Delete "smart" quotes and em-/en-dashes                  {{{ ]]
 map('n', '<leader>q', function()
   vim.cmd('%s/‘\\|’/\'/ge')
   vim.cmd('%s/“\\|”/"/ge')
   vim.cmd('%s/ \\?\\(—\\|–\\) \\?/ -- /ge')
 end)
+--}}}
+--[[ Check markdown checkboxes                                {{{
 
-map('i', '<M-u>', 'gUU`]a')
-map('n', '<leader>o', 'O<esc>0D')
-map('v', '<leader>a', 'g<C-a>')
-map('n', '<leader>a', '<C-a>')
-
-map('n', '<up>', '<C-w>k')
-map('n', '<down>', '<C-w>j')
-map('n', '<left>', '<C-w>h')
-map('n', '<right>', '<C-w>l')
-
-map({'n', 'x'}, 'ga', '<Plug>(EasyAlign)')
+     This may no longer be necessary thanks to VimWiki's
+     <Ctrl>-Space mapping. ]]
 
 map('n', '<leader>d', function()
   local checkline = api.nvim_get_current_line()
@@ -105,66 +168,9 @@ map('n', '<leader>d', function()
     print('Is that a checkbox?')
   end
 end)
-
-for k,v in pairs(hls) do
-  api.nvim_set_hl(0,k,v)
-end
-
-aucmd('FileType', {
-  callback = function() window.statusline = 'FILES' end,
-  once = false,
-  pattern = { 'netrw', }
-})
-
-opt.linebreak = true
-opt.textwidth = 65
-opt.autoindent = true
-opt.rnu = true
-opt.hlsearch = false
-opt.foldlevelstart = 0
-opt.foldmethod = 'marker'
-opt.expandtab = true
-opt.tabstop = 4
-opt.shiftwidth = 4
-opt.dictionary = '/usr/share/dict/american-english'
-opt.equalprg = 'pandoc'
-opt.ignorecase = true
-opt.smartcase = true
-opt.grepprg = 'rg -i --vimgrep $*'
-opt.tags = table.concat(bib,',')
-opt.backupdir = backup
-opt.directory = backup
-opt.undodir = backup
-
-opt.statusline = string.format(
-  '%.40s LINE:%3s/COL%3s',
-  '%f',
-  '%l',
-  '%v'
-)
-
-global.guicursor =
-  'i-ci:ver30-iCursor-blinkwait500-blinkon250-blinkoff250'
-
-global_var.netrw_liststyle      = 3
-global_var.netrw_banner         = 0
-global_var.netrw_browse_split   = 4
-global_var.netrw_winsize        = 20
-global_var.vimwiki_list = { { path = '~/wiki', } }
-global_var.vimwiki_global_ext = 0
-global_var.vimwiki_folding = 'list'
-global_var.markdown_fenced_languages = {
-  'awk', 'lua', 'perl', 'html',
-  'sh', 'bash', 'bib',
-}
-
-require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'lervag/vimtex'
-  use 'vimwiki/vimwiki'
-  use 'junegunn/vim-easy-align'
-end)
-
+--}}}
+--}}}
+--[[ Autocommands                                             {{{ ]]
 local wrapless_group = augrp('wrapless_group', { clear = true })
 local wrapless_match = {
   'html',
@@ -246,3 +252,25 @@ aucmd('BufNewFile', {
   pattern = {'*.xsl',}
 })
 
+aucmd('FileType', {
+  callback = function() window.statusline = 'FILES' end,
+  once = false,
+  pattern = { 'netrw', }
+})
+--}}}
+--[[ Setup                                                    {{{ ]]
+
+-- Set highlights as declared above
+for k,v in pairs(hls) do
+  api.nvim_set_hl(0,k,v)
+end
+
+-- Ask for plugins
+require('packer').startup(function(use)
+  use 'wbthomason/packer.nvim'
+  use 'lervag/vimtex'
+  use 'vimwiki/vimwiki'
+  use 'junegunn/vim-easy-align'
+end)
+
+--}}}

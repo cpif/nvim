@@ -48,5 +48,27 @@ LUA NOT EQUAL                               *lua-not-equal* *lua-neq*
 
 It's not `!=`, it's `~=`. What the fuck, lua?
 
+=================================================================
+GAWK BRACKET EXPRESSIONS       *gawk-bracket-expressions* *awk-regex*
+
+EXPR            SELECTS         ~
+[[:alnum:]]     Alphanumeric characters
+[[:alpha:]]     Alphabetic characters
+[[:blank:]]     Space and TAB characters
+[[:cntrl:]]     Control characters
+[[:digit:]]     Numeric characters
+[[:graph:]]     Characters that are both printable and visible (a
+                space is printable but not visible, whereas an
+                ‘a’ is both)
+[[:lower:]]     Lowercase alphabetic characters
+[[:print:]]     Printable characters (characters that are not
+                control characters)
+[[:punct:]]     Punctuation characters (characters that are not
+                letters, digits, control characters, or space
+                characters)
+[[:space:]]     Space characters (these are: space, TAB, newline,
+                carriage return, formfeed and vertical tab)
+[[:upper:]]     Uppercase alphabetic characters
+[[:xdigit:]]    Characters that are hexadecimal digits
 
 vim:tw=65:ts=4:ft=help

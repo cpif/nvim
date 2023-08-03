@@ -24,7 +24,7 @@ local bib = {
 local hls    = {
   Folded     = { ctermfg = 7, ctermbg   = 8, bold = true },
   Normal     = { ctermfg = 7 },
-  PreProc    = { ctermfg = 6 },
+  PreProc    = { ctermfg = 1 },
   Special    = { ctermfg = 1 },
   SpellBad   = { ctermfg = 3, underline = true },
   SpellCap   = { ctermfg = 3, underline = true },
@@ -52,6 +52,8 @@ opt.tags           = table.concat(bib,',')
 opt.backupdir      = backup
 opt.directory      = backup
 opt.undodir        = backup
+opt.title          = true
+opt.titlestring    = "nvim %F %S"
 opt.statusline     = string.format(
   '%.40s LINE:%3s/COL%3s',
   '%f',
@@ -75,7 +77,14 @@ global_var.netrw_browse_split   = 4
 global_var.netrw_winsize        = 20
 --}}}
 --[[ VimWiki options                                          {{{ ]]
-global_var.vimwiki_list = { { path = '~/wiki', } }
+global_var.vimwiki_list = {
+  { path = '~/wiki', },
+  {
+    path = '~/project/site',
+    ext  = '.md',
+    syntax = 'markdown',
+  },
+}
 global_var.vimwiki_global_ext = 0
 global_var.vimwiki_folding = 'list'
 --}}}
@@ -92,6 +101,8 @@ map('i', '<M-u>', 'gUU`]a')
 
 -- Create a blank line above the current one
 map('n', '<leader>o', 'O<esc>0D')
+
+map('t', '<Esc>', '')
 
 -- EasyAlign binding
 map({'n', 'x'}, 'ga', '<Plug>(EasyAlign)')

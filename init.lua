@@ -25,7 +25,7 @@ local hls    = {
   Folded     = { ctermfg = 7, ctermbg   = 8, bold = true },
   Normal     = { ctermfg = 7 },
   PreProc    = { ctermfg = 1 },
-  Special    = { ctermfg = 1 },
+  Special    = { ctermfg = 8 },
   SpellBad   = { ctermfg = 3, underline = true },
   SpellCap   = { ctermfg = 3, underline = true },
   Title      = { ctermfg = 3, bold      = true },

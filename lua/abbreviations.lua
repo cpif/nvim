@@ -1,5 +1,0 @@
-vim.cmd('cnorea myvimrc $MYVIMRC', false)
-vim.cmd('ia lenght length', false)
-vim.cmd('ia determing determining', false)
-vim.cmd('ia precuations precautions', false)
-vim.cmd('ia precuation precaution', false)

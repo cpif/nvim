@@ -1,1 +1,6 @@
-spell/
+spell/*
+todo.md
+**/*.bak
+plugin/*
+tags
+doc/tags

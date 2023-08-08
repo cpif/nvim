@@ -1,0 +1,13 @@
+#!/bin/bash
+
+noweave init.nw |\
+    awk '/nwbegincode/ { print "\\begin{verbatim}";    next }
+         /nwendcode/   { printf "\\end{verbatim}\n\n"; next }
+         1
+    ' |\
+    pandoc -f latex -t gfm > README_new.md
+
+noweave init.nw > tmp.tex
+latexmk -output-format=pdf tmp
+latexmk -c
+notangle init.nw > init_new.lua

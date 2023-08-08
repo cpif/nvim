@@ -1,0 +1,39 @@
+\section{My vimrc}
+\begin{quote}
+    I was never embarrassed about asking someone, literally,
+    ``What should I paint?'' because how is asking someone for
+    ideas any different from looking for them in a magazine? 
+\end{quote}
+\begin{flushright}
+--- Andy Warhol
+\end{flushright}
+This is a documentation of my neovim configuration.
+Although I do some small programming projects,
+I mainly use vim to write prose, so I
+think that what this contains will primarily be of use
+to other writers who are only amateur programmers.
+Others will find little of note.
+
+\subsection{Help! The Lines are Too Long!}
+
+The first obstruction to using vim
+as software for writing
+which I encountered was the long, unwrapped
+lines the software defaults to.
+Vim has two relevant options which are related to this:
+\texttt{linebreak} and \texttt{textwidth}.
+You can find more information about any options
+mentioned in this document by typing
+\texttt{:h OPTION} from within vim.
+The \texttt{linebreak} option makes vim
+wrap long lines, and the
+\texttt{textwidth} option controls how long
+the broken lines ought to be. I prefer a fairly
+short line, so I set \texttt{textwidth} to 65 characters:
+<<line lengths>>=
+opt.linebreak       = true
+opt.textwidth       = 65
+@
+
+
+% vim:ft=tex tabstop=2 shiftwidth=2

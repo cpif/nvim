@@ -102,6 +102,9 @@ map('i', '<M-u>', 'gUU`]a')
 -- Create a blank line above the current one
 map('n', '<leader>o', 'O<esc>0D')
 
+-- Create a (bash-style) comment with pretty vim folding
+map('n', '<leader>c', '62i <esc>A{{{<esc>0r#ll')
+
 map('t', '<Esc>', '')
 
 -- EasyAlign binding
